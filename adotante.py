@@ -13,12 +13,12 @@ class Adotante(Pessoa):
 
     @e_doador.setter
     def e_doador(self, novo_e_doador: bool):
-        self.e_doador = novo_e_doador
+        self.__e_doador = novo_e_doador
 
     @property
     def mora_apto(self):
         return self.__mora_apto
 
     @mora_apto.setter
-    def apto(self,novo_mora_apto: bool):
+    def mora_apto(self,novo_mora_apto: bool):
         self.__mora_apto = novo_mora_apto
