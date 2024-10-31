@@ -39,7 +39,7 @@ class Pessoa:
     @data_nascimento.setter
     def data_nascimento(self, nova_data_nascimento: str):
         try:
-            dia, mes, ano = map(int, nova_data_nascimento.split('-')) #split força a pessoa a coloca traço entre as datas
-            self.__data_nascimento = date(ano, mes, dia)              #map(int força string a virar um inteiro
+            dia, mes, ano = map(int, nova_data_nascimento.split('-')) #split força o usuario a coloca traço entre as datas e ajusto para dia, mes ano
+            self.__data_nascimento = date(ano, mes, dia)              #map(int)  força string a virar um inteiro
         except ValueError:
             raise ValueError("A data deve estar entre traços Ex: DD-MM-AAAA")
