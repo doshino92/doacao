@@ -1,14 +1,14 @@
 from doador import Doador
-from datetime import date
 from animal import Animal
+from datetime import date
 
 
 class Doacao:
-    def __init__(self, ano: int, mes: int, dia: int, animal: str, doador: Doador, motivo: str):
-        self.__data_doacao = date(ano, mes, dia)
+    def __init__(self, ano: int, mes: int, dia: int, animal: Animal, doador: Doador, motivo: str):
+        self.__data_doacao = None
         self.__animal = animal
         self.__doador = doador
-        self.__motivo = motivo
+        self.__motivo = None
 
     @property
     def data_doacao(self):
