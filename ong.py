@@ -10,15 +10,22 @@ class Ong:
         self.__doacoes = doacoes
         self.__adocoes = adocoes
 
-    def listar_animais(self):
+    #mostrar lista de animais que foram doados
+    def mostrar_animais(self):
         for animais in self.__animais:  # Usar __animais diretamente
             print(animais.nome)
 
-
-    def listar_doacoes(self):
+    #mostrar lista de animais doados
+    def mostrar_doacoes(self):
         for doacao in self.__doacoes:
             print(doacao.animal.nome)
 
-    def listar_adocoes(self):
+    #mostrar lista de animais adotados
+    def mostrar_adocoes(self):
         for adocao in self.__adocoes:
             print(adocao.animal.nome)
+
+    def receber_animal(self, animal: Animal):
+        self.__animais.append(animal)
+        print(f'animal recebido',animal.nome)
+

@@ -33,6 +33,5 @@ lista_adocoes = [adocao1,adocao2]
 # criando uma instancia de ong e passando  a lista de animais
 ong = Ong(lista_animais, lista_doacoes, lista_adocoes)
 
-ong.listar_animais()
-ong.listar_doacoes()
-ong.listar_adocoes()
+ong.receber_animal(animal1)
+ong.receber_animal(animal2)
