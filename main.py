@@ -33,6 +33,8 @@ lista_adocoes = [adocao1,adocao2]
 # criando uma instancia de ong e passando  a lista de animais
 ong = Ong(lista_animais, lista_doacoes, lista_adocoes)
 
-ong.listar_animais()
-ong.listar_doacoes()
-ong.listar_adocoes()
+#criando um registro de doação na ONG, passando uma doação e animal
+ong.registrar_doacao(doacao1, animal1)
+
+#criando um registro de adoação na ONG, passando uma adoação e animal
+ong.registrar_adocao(adocao1, animal2)
