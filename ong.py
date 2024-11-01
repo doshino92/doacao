@@ -1,4 +1,5 @@
 import animal
+import doador
 from adocao import Adocao
 from animal import Animal
 from doacao import Doacao
@@ -27,5 +28,13 @@ class Ong:
 
     def receber_animal(self, animal: Animal):
         self.__animais.append(animal)
-        print(f'animal recebido',animal.nome)
+        print(f'Animal recebido',animal.nome)
+
+    def registrar_doacao(self, doacao: Doacao, animal: Animal):
+        self.__doacoes.append(doacao)
+        print(f'\nDoação Recebida \nAnimal:', animal.nome,'\nDoador: ', doacao.doador.nome )
+
+    def registrar_adocao(self, adocao: Adocao, animal: Animal):
+        self.__adocoes.append(adocao)
+        print(f'\nAdoção Recebida \nAnimal:', animal.nome,'\nAdotante: ', adocao.adotante.nome )
 
