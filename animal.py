@@ -1,8 +1,8 @@
 class Animal:
     def __init__(self, nome: str, raca: str, vacina: str ):
-        self.__nome = None
-        self.__raca = None
-        self.__vacina = None
+        self.__nome = nome
+        self.__raca = raca
+        self.__vacina = vacina
 
     @property
     def nome(self):

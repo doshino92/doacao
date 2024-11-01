@@ -5,10 +5,10 @@ from datetime import date
 
 class Doacao:
     def __init__(self, ano: int, mes: int, dia: int, animal: Animal, doador: Doador, motivo: str):
-        self.__data_doacao = None
+        self.__data_doacao = date(ano, mes, dia)
         self.__animal = animal
         self.__doador = doador
-        self.__motivo = None
+        self.__motivo = motivo
 
     @property
     def data_doacao(self):
