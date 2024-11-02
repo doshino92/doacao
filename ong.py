@@ -11,6 +11,7 @@ class Ong:
         self.__doacoes = doacoes
         self.__adocoes = adocoes
 
+    animais_adotados = []
     #mostrar lista de animais que foram doados
     def mostrar_animais(self):
         for animais in self.__animais:  # Usar __animais diretamente
@@ -38,3 +39,12 @@ class Ong:
         self.__adocoes.append(adocao)
         print(f'\nAdoção Recebida \nAnimal:', animal.nome,'\nAdotante: ', adocao.adotante.nome )
 
+    def animais_disponiveis(self):
+        animais_adotados = []
+        for adocao in self.__adocoes: #entrando nas adocoes onde chegam todos animais criados
+            if adocao.adotante is not None: #se adocao não tiver um adotante
+                animais_adotados.append(adocao.animal) # adiciona a lista o nome esses animais
+        print("Animais disponíveis para adoção:")
+        for animal in self.__animais:
+            if animal not in animais_adotados: # se o animal não está na lista de animais_adotados
+                print(animal.nome)
