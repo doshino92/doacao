@@ -12,7 +12,7 @@ class Doacao:
 
     @property
     def data_doacao(self):
-        return self.__data_doacao.strftime('%d/%m/%Y')
+        return self.__data_doacao
 
     @data_doacao.setter
     def data_doacao(self, nova_data_doacao):

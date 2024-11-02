@@ -6,7 +6,7 @@ from doador import Doador
 
 class Adocao:
     def __init__(self, ano, mes, dia, animal: Animal, adotante: Adotante, doador: Doador,termo: bool):
-        self.__data_adoacao = date(ano, mes, dia)
+        self.__data_adocao = date(ano, mes, dia)
         self.__animal = animal
         self.__adotante = adotante
         self.__termo = None
@@ -16,15 +16,15 @@ class Adocao:
         self.__animal.adotado = True # marca no Animal que foi Adotado
 
     @property
-    def data_adoacao(self):
-        return self.__data_adoacao.strftime('%d/%m/%Y')
+    def data_adocao(self):
+        return self.__data_adocao
 
-    @data_adoacao.setter
-    def data_adoacao(self, nova_data_adoacao):
+    @data_adocao.setter
+    def data_adocao(self, nova_data_adocao):
         try:
-            dia, mes, ano = map(int, nova_data_adoacao.split(
+            dia, mes, ano = map(int, nova_data_adocao.split(
                 '-'))  # split força o usuario a coloca traço entre as datas e ajusto para dia, mes ano
-            self.__data_adoacao = date(ano, mes, dia)  # map(int)  força string a virar um inteiro
+            self.__data_adocao = date(ano, mes, dia)  # map(int)  força string a virar um inteiro
         except ValueError:
             raise ValueError("A data deve estar entre traços Ex: DD-MM-AAAA")
 

@@ -1,8 +1,8 @@
 from adocao import Adocao
-from adotante import Adotante
 from animal import Animal
 from doacao import Doacao
-from doador import Doador
+from datetime import datetime
+
 
 
 class Ong:
@@ -52,5 +52,46 @@ class Ong:
         for animal in disponiveis:
             print(animal.nome)
         return disponiveis
+
+    def doacoes_por_periodo(self, data_inicio_str: str, data_fim_str: str):
+        data_inicio = datetime.strptime(data_inicio_str, '%d-%m-%Y').date()
+        data_fim = datetime.strptime(data_fim_str, '%d-%m-%Y').date()
+
+        doacoes_filtradas = []
+        doacoes_exibidas = set()  # Para evitar duplicatas
+
+        for doacao in self.__doacoes:
+            if data_inicio <= doacao.data_doacao <= data_fim:
+                identificador_doacao = (doacao.animal.nome, doacao.doador.nome, doacao.data_doacao)
+                if identificador_doacao not in doacoes_exibidas:
+                    doacoes_exibidas.add(identificador_doacao)
+                    doacoes_filtradas.append(doacao)
+
+        print("\nDOACOES no período:", data_inicio_str,'até', data_fim_str)
+        for doacao in doacoes_filtradas:
+            print(f"Animal: {doacao.animal.nome}, Doador: {doacao.doador.nome}, Data: {doacao.data_doacao}")
+
+        return doacoes_filtradas
+
+    def adocoes_por_periodo(self, data_inicio_str: str, data_fim_str: str):
+        # Converter strings de data para objetos date
+        data_inicio = datetime.strptime(data_inicio_str, '%d-%m-%Y').date()
+        data_fim = datetime.strptime(data_fim_str, '%d-%m-%Y').date()
+
+        adocoes_filtradas = []
+        adocoes_exibidas = set()  # Para evitar duplicatas
+
+        for adocao in self.__adocoes:
+            if data_inicio <= adocao.data_adocao <= data_fim:
+                identificador_adocao = (adocao.animal.nome, adocao.adotante.nome, adocao.data_adocao)
+                if identificador_adocao not in adocoes_exibidas:
+                    adocoes_exibidas.add(identificador_adocao)
+                    adocoes_filtradas.append(adocao)
+
+        print("\nADOÇOES no período:", data_inicio_str, 'até', data_fim_str)
+        for adocao in adocoes_filtradas:
+            print(f"Animal: {adocao.animal.nome}, Adotante: {adocao.adotante.nome}, Data: {adocao.data_adocao}")
+
+        return adocoes_filtradas
 
 
