@@ -1,5 +1,3 @@
-import animal
-import doador
 from adocao import Adocao
 from animal import Animal
 from doacao import Doacao
@@ -37,14 +35,11 @@ class Ong:
 
     def registrar_adocao(self, adocao: Adocao, animal: Animal):
         self.__adocoes.append(adocao)
-        print(f'\nAdoção Recebida \nAnimal:', animal.nome,'\nAdotante: ', adocao.adotante.nome )
+        print(f'\nAdoção Realizada \nAnimal:', animal.nome,'\nAdotante: ', adocao.adotante.nome )
 
     def animais_disponiveis(self):
-        animais_adotados = []
-        for adocao in self.__adocoes: #entrando nas adocoes onde chegam todos animais criados
-            if adocao.adotante is not None: #se adocao não tiver um adotante
-                animais_adotados.append(adocao.animal) # adiciona a lista o nome esses animais
-        print("Animais disponíveis para adoção:")
-        for animal in self.__animais:
-            if animal not in animais_adotados: # se o animal não está na lista de animais_adotados
-                print(animal.nome)
+        print("\nAnimais Disponíveis para Adoção:")
+        disponiveis = [animal for animal in self.__animais if not animal.adotado] #se animal nao for adotado entra na lista
+        for animal in disponiveis:
+            print(animal.nome)
+        return disponiveis
