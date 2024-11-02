@@ -1,8 +1,9 @@
 class Animal:
-    def __init__(self, nome: str, raca: str, vacina: str ):
+    def __init__(self, nome: str, raca: str, vacina: str, adotado:bool = None ):
         self.__nome = nome
         self.__raca = raca
         self.__vacina = vacina
+        self.__adotado = None
 
     @property
     def nome(self):
@@ -27,3 +28,11 @@ class Animal:
     @vacina.setter
     def vacina(self, nova_vacina: str):
         self.__vacina = nova_vacina
+
+    @property
+    def adotado(self):
+        return self.__adotado
+
+    @adotado.setter
+    def adotado(self, novo_adotado: bool):
+        self.__adotado = novo_adotado

@@ -10,6 +10,9 @@ class Adocao:
         self.__adotante = adotante
         self.__termo = None
 
+
+        self.__animal.adotado = True # marca no Animal que foi Adotado
+
     @property
     def data_adoacao(self):
         return self.__data_adoacao.strftime('%d/%m/%Y')
@@ -30,6 +33,7 @@ class Adocao:
     @animal.setter
     def animal(self, novo_animal: Animal):
         self.__animal = novo_animal
+
 
     @property
     def adotante(self):
