@@ -47,8 +47,8 @@ ong.registrar_doacao(doacao3)
 ong.registrar_adocao(adocao1)
 ong.registrar_adocao(adocao2)
 
-ong.doacoes_por_periodo('01-01-1000', '31-12-2024')
-ong.adocoes_por_periodo("01-01-2022", "31-12-2022")
+ong.doacoes_por_periodo('01-01-2000', '31-12-2024')
+ong.adocoes_por_periodo("01-01-2021", "31-12-2022")
 
 #mostrando os animais disponíveis para Doção
 ong.animais_disponiveis()

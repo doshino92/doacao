@@ -53,26 +53,6 @@ class Ong:
             print(animal.nome)
         return disponiveis
 
-    def doacoes_por_periodo(self, data_inicio_str: str, data_fim_str: str):
-        data_inicio = datetime.strptime(data_inicio_str, '%d-%m-%Y').date()
-        data_fim = datetime.strptime(data_fim_str, '%d-%m-%Y').date()
-
-        doacoes_filtradas = []
-        doacoes_exibidas = set()  # Para evitar duplicatas
-
-        for doacao in self.__doacoes:
-            if data_inicio <= doacao.data_doacao <= data_fim:
-                identificador_doacao = (doacao.animal.nome, doacao.doador.nome, doacao.data_doacao)
-                if identificador_doacao not in doacoes_exibidas:
-                    doacoes_exibidas.add(identificador_doacao)
-                    doacoes_filtradas.append(doacao)
-
-        print("\nDOACOES no período:", data_inicio_str,'até', data_fim_str)
-        for doacao in doacoes_filtradas:
-            print(f"Animal: {doacao.animal.nome}, Doador: {doacao.doador.nome}, Data: {doacao.data_doacao}")
-
-        return doacoes_filtradas
-
     def adocoes_por_periodo(self, data_inicio_str: str, data_fim_str: str):
         # Converter strings de data para objetos date
         data_inicio = datetime.strptime(data_inicio_str, '%d-%m-%Y').date()
@@ -94,4 +74,23 @@ class Ong:
 
         return adocoes_filtradas
 
+    def doacoes_por_periodo(self, data_inicio_str: str, data_fim_str: str):
+        # Converter strings de data para objetos date
+        data_inicio = datetime.strptime(data_inicio_str, '%d-%m-%Y').date()
+        data_fim = datetime.strptime(data_fim_str, '%d-%m-%Y').date()
 
+        doacoes_filtradas = []
+        doacoes_exibidas = set()  # Para evitar duplicatas
+
+        for doacao in self.__doacoes:
+            if data_inicio <= doacao.data_doacao <= data_fim:
+                identificador_doacao = (doacao.animal.nome, doacao.doador.nome, doacao.data_doacao)
+                if identificador_doacao not in doacoes_exibidas:
+                    doacoes_exibidas.add(identificador_doacao)
+                    doacoes_filtradas.append(doacao)
+
+        print("\nDOAÇOES no período:", data_inicio_str, 'até', data_fim_str)
+        for doacao in doacoes_filtradas:
+            print(f"Animal: {doacao.animal.nome}, Adotante: {doacao.doador.nome}, Data: {doacao.data_doacao}")
+
+        return doacoes_filtradas
