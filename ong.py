@@ -1,10 +1,12 @@
 from adocao import Adocao
+from adotante import Adotante
 from animal import Animal
 from doacao import Doacao
+from doador import Doador
 
 
 class Ong:
-    def __init__(self, animais: list[Animal], doacoes: list[Doacao], adocoes: list[Adocao]):
+    def __init__(self, animais: list[Animal], doacoes: list[Doacao], adocoes: list[Adocao] ):
         self.__animais = animais
         self.__doacoes = doacoes
         self.__adocoes = adocoes
@@ -29,13 +31,20 @@ class Ong:
         self.__animais.append(animal)
         print(f'Animal recebido',animal.nome)
 
-    def registrar_doacao(self, doacao: Doacao, animal: Animal):
-        self.__doacoes.append(doacao)
-        print(f'\nDoação Recebida \nAnimal:', animal.nome,'\nDoador: ', doacao.doador.nome )
+    #def verifica_adotante(self):
 
-    def registrar_adocao(self, adocao: Adocao, animal: Animal):
-        self.__adocoes.append(adocao)
-        print(f'\nAdoção Realizada \nAnimal:', animal.nome,'\nAdotante: ', adocao.adotante.nome )
+    def registrar_doacao(self, doacao: Doacao):
+        self.__doacoes.append(doacao)
+        print(f'\nDoação Recebida \nAnimal:', doacao.animal.nome,'\nDoador: ', doacao.doador.nome )
+
+    def registrar_adocao(self, adocao: Adocao):
+        if adocao.adotante.cpf != adocao.doador.cpf:
+            self.__adocoes.append(adocao)
+            print(f'\nAdoção Realizada \nAnimal:', adocao.animal.nome, '\nAdotante: ', adocao.adotante.nome)
+        else:
+            print('\n',adocao.doador.nome, 'é doador, então não pode adotar o Animal', adocao.animal.nome )
+            adocao.animal.adotado = False # se animal não foi adotado pelo motivo do adotante ser doador, então animal da doação set False em adotado
+
 
     def animais_disponiveis(self):
         print("\nAnimais Disponíveis para Adoção:")
@@ -43,3 +52,5 @@ class Ong:
         for animal in disponiveis:
             print(animal.nome)
         return disponiveis
+
+

@@ -1,14 +1,16 @@
 from datetime import date
 from animal import Animal
 from adotante import Adotante
+from doador import Doador
 
 
 class Adocao:
-    def __init__(self, ano, mes, dia, animal: Animal, adotante: Adotante, termo: bool ):
+    def __init__(self, ano, mes, dia, animal: Animal, adotante: Adotante, doador: Doador,termo: bool):
         self.__data_adoacao = date(ano, mes, dia)
         self.__animal = animal
         self.__adotante = adotante
         self.__termo = None
+        self.__doador = doador
 
 
         self.__animal.adotado = True # marca no Animal que foi Adotado
@@ -50,3 +52,11 @@ class Adocao:
     @termo.setter
     def termo(self, novo_termo: bool):
         self.__termo = novo_termo
+
+    @property
+    def doador(self):
+        return self.__doador
+
+    @doador.setter
+    def doador(self, novo_doador: Doador):
+        self.__doador = novo_doador
