@@ -1,4 +1,4 @@
-import vacina
+import animal
 from doador import Doador
 from animal import Animal
 from doacao import Doacao
@@ -38,6 +38,8 @@ vacina1 = Vacina(tipos.TipoVacina.RAIVA, 2022, 2, 17)
 vacina2 = Vacina(tipos.TipoVacina.HEPATITE,2022,2,17)
 vacina3 = Vacina(tipos.TipoVacina.LEPTOSPIROSE,2022,2,17)
 
+
+
 #criando uma lista de animais, doações e adoções
 lista_animais = [animal1,animal2, animal3]
 lista_doacoes = [doacao1,doacao2,doacao3]
@@ -62,3 +64,9 @@ ong.adocoes_por_periodo("01-01-1021", "31-12-2022")
 
 #mostrando os animais disponíveis para Doção
 ong.animais_disponiveis()
+
+ong.vacinar_animais_disponiveis(vacina1)
+ong.vacinar_animais_disponiveis(vacina2)
+ong.vacinar_animais_disponiveis(vacina3)
+animal1.mostrar_vacinas()
+

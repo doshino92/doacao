@@ -1,16 +1,19 @@
-from tipoPorte import TipoPorte
-from tipoAnimal import TipoAnimal
+from tipos import TipoPorte
+from tipos import TipoAnimal
+from vacina import Vacina
+from typing import List
 
 
 class Animal:
-    def __init__(self,chip: str, nome: str, raca: str, porte: TipoPorte, tipo_animal: TipoAnimal, adotado: bool = False):
+    def __init__(self,chip: str, nome: str, raca: str, porte: TipoPorte,
+                 tipo_animal: TipoAnimal, adotado: bool = False):
         self.__chip = chip
         self.__nome = nome
         self.__raca = raca
         self.__porte = porte
         self.__tipo_animal = tipo_animal
         self.__adotado = adotado
-
+        self.__vacinas = []
     @property
     def chip(self):
         return self.__chip
@@ -52,9 +55,24 @@ class Animal:
         self.__tipo_animal = novo_tipo_animal
 
     @property
+    def vacinas(self) -> List[Vacina]:
+        return self.__vacinas
+
+    def adicionar_vacina(self, vacina: Vacina):
+        self.__vacinas.append(vacina)
+
+    @property
     def adotado(self):
         return self.__adotado
 
     @adotado.setter
     def adotado(self, novo_adotado: bool):
         self.__adotado = novo_adotado
+
+    def mostrar_vacinas(self):
+        if not self.vacinas:
+            print(f"{self.nome} não recebeu vacinas.")
+            return
+        print(f"Vacinas de {self.nome}:")
+        for vacina in self.vacinas:
+            print(f"- {vacina.tipo.value} ")

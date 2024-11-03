@@ -1,8 +1,7 @@
 from datetime import date
-from tipoVacina import TipoVacina
+from tipos import TipoVacina
 
-
-class Vacina:
+class Vacina():
     def __init__(self, tipo: TipoVacina, ano: int, mes: int, dia: int):
         self.__tipo = tipo
         self.__data_aplicacao = date(ano, mes, dia)
