@@ -1,8 +1,7 @@
 from adocao import Adocao
 from animal import Animal
 from doacao import Doacao
-from datetime import datetime, date
-from vacina import Vacina
+from datetime import datetime
 
 
 class Ong:

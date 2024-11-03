@@ -5,7 +5,7 @@ from doador import Doador
 
 
 class Adocao:
-    def __init__(self, ano, mes, dia, animal: Animal, adotante: Adotante, doador: Doador,termo: bool):
+    def __init__(self, ano, mes, dia, animal: Animal, adotante: Adotante, doador: Doador,termo: bool= None):
         self.__data_adocao = date(ano, mes, dia)
         self.__animal = animal
         self.__adotante = adotante

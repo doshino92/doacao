@@ -1,25 +1,28 @@
-
+import vacina
 from doador import Doador
 from animal import Animal
 from doacao import Doacao
 from adocao import Adocao
 from adotante import Adotante
 from ong import Ong
+from tipoPorte import TipoPorte
+from tipoAnimal import TipoAnimal
+from vacina import TipoVacina, Vacina
 
 # criando adotantes
-adotante1 = Adotante('Marcos', '11221643606','Florianópolis',1992,9,19, True, False )
-adotante2 = Adotante('Val', '333111333','Sao Jose',2000,2,13, True, False )
-adotante3 = Adotante('Carol', '331345611333','Sao Jose',2000,2,13, True, False )
+adotante1 = Adotante('Marcos', '11221643606','Florianópolis',1992,9,19 )
+adotante2 = Adotante('Val', '333111333','Sao Jose',2000,2,13 )
+adotante3 = Adotante('Carol', '331345611333','Sao Jose',2000,2,13)
 
 # criando doadores
-doador1 = Doador('Marcos', '11221643606', 'Trindade', 1992, 12, 17,None)
-doador2 = Doador('Guilherme', '1122321643606', 'Floripa', 1990, 11, 19,None)
-doador3 = Doador('Carla', '112216331143606', 'Floripa', 1990, 11, 19,None)
+doador1 = Doador('Marcos', '11221643606', 'Trindade', 1992, 12, 17)
+doador2 = Doador('Guilherme', '1122321643606', 'Floripa', 1990, 11, 19)
+doador3 = Doador('Carla', '112216331143606', 'Floripa', 1990, 11, 19)
 
 #criando animais
-animal1 = Animal("Mia", "Viralata", "Raiva")
-animal2 = Animal("Cagão", "Pastor Alemão","V8")
-animal3 = Animal("Pitu", "Tigre","V8")
+animal1 = Animal('123','Mia', 'Viralata',TipoPorte.pequeno, TipoAnimal.GATO)
+animal2 = Animal('456','Cagão', 'Pastor Alemão',TipoPorte.pequeno, TipoAnimal.GATO)
+animal3 = Animal('789','Pitu', 'Tigre',TipoPorte.grande, TipoAnimal.CACHORRO)
 
 #criando doações que recebem objetos da classe Animal e Doador
 doacao1 = Doacao(1992, 12, 19,animal1, doador1,'Caga muito' )
@@ -27,9 +30,14 @@ doacao2 = Doacao(2022, 2, 14,animal2, doador2,'Violento' )
 doacao3 = Doacao(2021, 2, 14, animal3, doador3, 'Violento')
 
 #criando adocões que recebem objetos da classe Animal e Adotante
-adocao1 = Adocao(2023,10,15,animal1, adotante1, doador1,True)
-adocao2 = Adocao(2022,2,28,animal2, adotante2, doador2,True)
-adocao3 = Adocao(2021,2,28,animal3, adotante3, doador3,True)
+adocao1 = Adocao(2023,10,15,animal1, adotante1, doador1)
+adocao2 = Adocao(2022,2,28,animal2, adotante2, doador2)
+adocao3 = Adocao(2021,2,28,animal3, adotante3, doador3)
+
+
+vacina1 = Vacina(TipoVacina.RAIVA,2022,2,17)
+vacina2 = Vacina(TipoVacina.HEPATITE,2022,2,17)
+vacina3 = Vacina(TipoVacina.LEPTOSPIROSE,2022,2,17)
 
 #criando uma lista de animais, doações e adoções
 lista_animais = [animal1,animal2, animal3]
@@ -51,6 +59,7 @@ ong.registrar_adocao(adocao3)
 
 ong.doacoes_por_periodo('01-01-1000', '31-12-2024')
 ong.adocoes_por_periodo("01-01-1021", "31-12-2022")
+
 
 #mostrando os animais disponíveis para Doção
 ong.animais_disponiveis()

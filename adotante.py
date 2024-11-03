@@ -2,7 +2,7 @@ from pessoa import Pessoa
 
 
 class Adotante(Pessoa):
-    def __init__(self,nome: str, cpf: str, endereco: str, ano: int, mes: int, dia: int, e_doador: bool, mora_apto: bool):
+    def __init__(self,nome: str, cpf: str, endereco: str, ano: int, mes: int, dia: int, e_doador: bool= None, mora_apto: bool = None):
         super().__init__(nome, cpf,endereco,ano, mes, dia)
         self.__e_doador = None
         self.__mora_apto = None

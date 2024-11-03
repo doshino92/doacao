@@ -3,7 +3,7 @@ from pessoa import Pessoa
 
 
 class Doador(Pessoa):
-    def __init__(self, nome: str, cpf: str, endereco: str, ano: int, mes: int, dia: int, animal: Animal ):
+    def __init__(self, nome: str, cpf: str, endereco: str, ano: int, mes: int, dia: int, animal: Animal = None ):
         super().__init__(nome, cpf, endereco, ano, mes, dia)
         self.__animal =  animal
 
