@@ -2,6 +2,7 @@ from adocao import Adocao
 from animal import Animal
 from doacao import Doacao
 from datetime import datetime
+from datetime import date
 
 from vacina import Vacina
 
@@ -99,3 +100,18 @@ class Ong:
             if not animal.adotado:
                 animal.adicionar_vacina(vacina)
                 print(f"Vacina {vacina.tipo.value} aplicada em {animal.nome}.")
+
+    def mostrar_vacinas_animal(self, animal):
+        if not isinstance(animal, Animal):
+            print("O objeto fornecido não é um animal.")
+            return
+
+        if not animal.vacinas:
+            print(f"{animal.nome} não recebeu vacinas.")
+            return
+
+        print(f"Vacinas de {animal.nome}:")
+        for vacina in animal.vacinas:
+            data = vacina.data_aplicacao  # Obtém o objeto date
+            print(
+                f"- {vacina.tipo.value} (Data: {data.day}/{data.month}/{data.year})")  # Usa o dia, mês e ano do objeto date

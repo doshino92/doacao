@@ -35,8 +35,8 @@ adocao3 = Adocao(2021,2,28,animal3, adotante3, doador3)
 
 
 vacina1 = Vacina(tipos.TipoVacina.RAIVA, 2022, 2, 17)
-vacina2 = Vacina(tipos.TipoVacina.HEPATITE,2022,2,17)
-vacina3 = Vacina(tipos.TipoVacina.LEPTOSPIROSE,2022,2,17)
+vacina2 = Vacina(tipos.TipoVacina.HEPATITE,2021,1,5)
+vacina3 = Vacina(tipos.TipoVacina.LEPTOSPIROSE,2020,2,8)
 
 
 
@@ -68,5 +68,5 @@ ong.animais_disponiveis()
 ong.vacinar_animais_disponiveis(vacina1)
 ong.vacinar_animais_disponiveis(vacina2)
 ong.vacinar_animais_disponiveis(vacina3)
-animal1.mostrar_vacinas()
+ong.mostrar_vacinas_animal(animal1)
 

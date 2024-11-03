@@ -68,11 +68,3 @@ class Animal:
     @adotado.setter
     def adotado(self, novo_adotado: bool):
         self.__adotado = novo_adotado
-
-    def mostrar_vacinas(self):
-        if not self.vacinas:
-            print(f"{self.nome} não recebeu vacinas.")
-            return
-        print(f"Vacinas de {self.nome}:")
-        for vacina in self.vacinas:
-            print(f"- {vacina.tipo.value} ")
