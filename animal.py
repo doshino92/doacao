@@ -14,19 +14,19 @@ class Animal:
         self.__tipo_animal = None
         self.__adotado = None
         self.__vacinas = []
-        
+
         if isinstance(chip, str):
             self.__chip = chip
-            
+
         if isinstance(nome, str):
             self.__nome = nome
-        
+
         if isinstance(raca, TipoAnimal):
             self.__raca = raca
-        
+
         if isinstance(adotado, bool):
             self.__adotado = adotado
- 
+
     @property
     def chip(self):
         return self.__chip
