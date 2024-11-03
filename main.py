@@ -5,13 +5,13 @@ from doacao import Doacao
 from adocao import Adocao
 from adotante import Adotante
 from ong import Ong
-import tipos
 from vacina import Vacina
+import tipos
 
 # criando adotantes
-adotante1 = Adotante('Marcos', '11221643606','Florianópolis',1992,9,19 )
-adotante2 = Adotante('Val', '333111333','Sao Jose',2010,2,13 )
-adotante3 = Adotante('Carol', '331345611333','Sao Jose',2000,2,13)
+adotante1 = Adotante('Marcos', '11221643606','Florianópolis',1992,9,19,tipos.TipoMoradia.CASA)
+adotante2 = Adotante('Val', '333111333','Sao Jose',2010,2,13,tipos.TipoMoradia.CASA )
+adotante3 = Adotante('Carol', '331345611333','Sao Jose',2000,2,13,tipos.TipoMoradia.APARTAMENTO)
 
 # criando doadores
 doador1 = Doador('Marcos', '11221643606', 'Trindade', 1992, 12, 17)
