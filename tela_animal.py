@@ -1,9 +1,9 @@
 
 
 class TelaAnimal():
-    def opcoes(self):
+    def tela_inicial(self):
         print('----------ANIMAIS----------')
-        print('1 - Incluir Amigo')
+        print('1 - Incluir Animal')
         print('2 - Alterar Animal')
         print('3 - Excluir Animal')
         print('4 - Listar Animais')
@@ -14,7 +14,7 @@ class TelaAnimal():
         opcao = int(input('Escolha a opcao: '))
         return opcao
 
-    def dados_animais(self):
+    def adiciona_animal(self):
         print('----- DADOS ANIMAIS -----')
         nome = input('Nome: ')
         chip = input('Chip: ')
@@ -74,4 +74,4 @@ class TelaAnimal():
             return{'Nome: ':nome, 'Chip: ':chip, 'CPF: ':cpf_daodor, 'Raca: ':raca, 'Vacinado contra leptospirose: ':resposta_H, 'Vacinado contra hepatete: ':resposta_L, 'Vacinado contra raiva: ': resposta_R}
         
         
-        
+        def 
