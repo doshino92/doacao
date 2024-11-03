@@ -34,6 +34,38 @@ class ControladorAnimal():
 
         self.__animal.append(animal)
         self.__cachorros.append(animal)
+    
+    def altera_animal(self, animal:Animal):
+        self.listar_animais()
+        
+        chip = self.__tela_animal.solicitar_input('chip do animal: ')
+        animal = self.pega_animal_por_chip(chip)
+        continua = animal != None
+        
+        if continua:
+            if animal.raca == 'cachorro':
+                novos_dados_animal = self.__tela_animal.dados_cachorro()
+                animal.nome = novos_dados_animal['nome']
+                animal.chip = novos_dados_animal['chip']
+                animal.cpf_doador = novos_dados_animal['CPF do doador']
+                animal.raca = 'cachorro'
+                animal.porte = novos_dados_animal['porte']
+                animal.hepatite = novos_dados_animal['hepatite']
+                animal.leptospirose = novos_dados_animal['leptospirose']
+                animal.raiva = novos_dados_animal['raiva']
+            
+            else:
+                novos_dados_animal = self.__tela_animal.dados_gato()
+                animal.nome = novos_dados_animal['nome']
+                animal.chip = novos_dados_animal['chip']
+                animal.cpf_doador = novos_dados_animal['CPF do doador']
+                animal.raca = 'gato'
+                animal.hepatite = novos_dados_animal['hepatite']
+                animal.leptospirose = novos_dados_animal['leptospirose']
+                animal.raiva = novos_dados_animal['raiva']
+                
+        return
+        
         
     def mostra_animal(self, animal:Animal):
         if not isinstance(animal, Animal):
@@ -48,10 +80,8 @@ class ControladorAnimal():
         dados['hepatite'] = animal.hepatite
         dados['leptospirose'] = animal.leptospirose
         dados['raiva'] = animal.raiva
-        
-        self.__tela_animal.mostrar_animal(dados)
     
-    def listar_animal(self, animal:Animal):
+    def listar_animais(self, animal:Animal):
         i = 0
         while i < len(self.__animal):
             animal = self.__animal[i]
@@ -75,3 +105,5 @@ class ControladorAnimal():
             self.mostra_animal(gato[i])
 
             i = i + 1
+    
+    

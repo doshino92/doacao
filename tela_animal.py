@@ -12,8 +12,12 @@ class TelaAnimal():
         print('7 - Listar Cachorros')
         print('8 - Listar Gatos')
         print('0 - Retornar')
+        
+        self.solicitar_input()
     
-        opcao = int(input('Escolha a opcao: '))
+    
+    def solicitar_input():
+        opcao = input
         return opcao
 
     def dados_cachorro(self):
