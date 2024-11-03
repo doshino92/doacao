@@ -5,9 +5,8 @@ from doacao import Doacao
 from adocao import Adocao
 from adotante import Adotante
 from ong import Ong
-from tipoPorte import TipoPorte
-from tipoAnimal import TipoAnimal
-from vacina import TipoVacina, Vacina
+import tipos
+from vacina import Vacina
 
 # criando adotantes
 adotante1 = Adotante('Marcos', '11221643606','Florianópolis',1992,9,19 )
@@ -20,9 +19,9 @@ doador2 = Doador('Guilherme', '1122321643606', 'Floripa', 1990, 11, 19)
 doador3 = Doador('Carla', '112216331143606', 'Floripa', 1990, 11, 19)
 
 #criando animais
-animal1 = Animal('123','Mia', 'Viralata',TipoPorte.pequeno, TipoAnimal.GATO)
-animal2 = Animal('456','Cagão', 'Pastor Alemão',TipoPorte.pequeno, TipoAnimal.GATO)
-animal3 = Animal('789','Pitu', 'Tigre',TipoPorte.grande, TipoAnimal.CACHORRO)
+animal1 = Animal('123','Mia', 'Viralata',tipos.TipoPorte.PEQUENO, tipos.TipoAnimal.GATO)
+animal2 = Animal('456','Cagão', 'Pastor Alemão',tipos.TipoPorte.PEQUENO, tipos.TipoAnimal.GATO)
+animal3 = Animal('789','Pitu', 'Tigre',tipos.TipoPorte.GRANDE, tipos.TipoAnimal.CACHORRO)
 
 #criando doações que recebem objetos da classe Animal e Doador
 doacao1 = Doacao(1992, 12, 19,animal1, doador1,'Caga muito' )
@@ -35,9 +34,9 @@ adocao2 = Adocao(2022,2,28,animal2, adotante2, doador2)
 adocao3 = Adocao(2021,2,28,animal3, adotante3, doador3)
 
 
-vacina1 = Vacina(TipoVacina.RAIVA,2022,2,17)
-vacina2 = Vacina(TipoVacina.HEPATITE,2022,2,17)
-vacina3 = Vacina(TipoVacina.LEPTOSPIROSE,2022,2,17)
+vacina1 = Vacina(tipos.TipoVacina.RAIVA, 2022, 2, 17)
+vacina2 = Vacina(tipos.TipoVacina.HEPATITE,2022,2,17)
+vacina3 = Vacina(tipos.TipoVacina.LEPTOSPIROSE,2022,2,17)
 
 #criando uma lista de animais, doações e adoções
 lista_animais = [animal1,animal2, animal3]

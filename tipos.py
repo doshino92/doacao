@@ -7,9 +7,9 @@ class TipoVacina(Enum):
     RAIVA = "raiva"
 
 class TipoPorte(Enum):
-    pequeno = "pequeno"
-    medio = "médio"
-    grande = "grande"
+    PEQUENO = "pequeno"
+    MEDIO = "médio"
+    GRANDE = "grande"
 
 class TipoAnimal(Enum):
     CACHORRO = "cachorro"
