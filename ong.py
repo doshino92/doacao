@@ -1,8 +1,8 @@
 from adocao import Adocao
 from animal import Animal
 from doacao import Doacao
-from datetime import datetime
-
+from datetime import datetime, date
+from vacina import Vacina
 
 
 class Ong:
@@ -12,6 +12,7 @@ class Ong:
         self.__adocoes = adocoes
 
     animais_adotados = []
+
     #mostrar lista de animais que foram doados
     def mostrar_animais(self):
         for animais in self.__animais:  # Usar __animais diretamente
@@ -27,28 +28,24 @@ class Ong:
         for adocao in self.__adocoes:
             print(adocao.animal.nome)
 
-    def receber_animal(self, animal: Animal):
-        self.__animais.append(animal)
-        print(f'Animal recebido',animal.nome)
-
-    #def verifica_adotante(self):
 
     def registrar_doacao(self, doacao: Doacao):
         self.__doacoes.append(doacao)
-        print(f'\nDoação Recebida \nAnimal:', doacao.animal.nome,'\nDoador: ', doacao.doador.nome )
+        #print(f'\nDoação Recebida \nAnimal:', doacao.animal.nome,'\nDoador: ', doacao.doador.nome )
 
     def registrar_adocao(self, adocao: Adocao):
         if adocao.adotante.cpf != adocao.doador.cpf:
             self.__adocoes.append(adocao)
-            print(f'\nAdoção Realizada \nAnimal:', adocao.animal.nome, '\nAdotante: ', adocao.adotante.nome)
+            #print(f'\nAdoção Realizada \nAnimal: {adocao.animal.nome} \nAdotante: {adocao.adotante.nome}')
+            adocao.animal.adotado = True
         else:
-            print('\n',adocao.doador.nome, 'é doador, então não pode adotar o Animal', adocao.animal.nome )
-            adocao.animal.adotado = False # se animal não foi adotado pelo motivo do adotante ser doador, então animal da doação set False em adotado
+            print(f'\n{adocao.doador.nome} é doador, então não pode adotar o Animal {adocao.animal.nome}')
+            adocao.animal.adotado = False  # Se o animal não foi adotado pelo motivo do adotante ser doador, o animal se mantém não adotado
 
 
     def animais_disponiveis(self):
         print("\nAnimais Disponíveis para Adoção:")
-        disponiveis = [animal for animal in self.__animais if not animal.adotado] #se animal nao for adotado entra na lista
+        disponiveis = [animal for animal in self.__animais if not animal.adotado ]  # Verifica se o animal tem todas as vacinas e não foi adotado
         for animal in disponiveis:
             print(animal.nome)
         return disponiveis
@@ -68,7 +65,7 @@ class Ong:
                     adocoes_exibidas.add(identificador_adocao)
                     adocoes_filtradas.append(adocao)
 
-        print("\nADOÇOES no período:", data_inicio_str, 'até', data_fim_str)
+        print("\nADOÇÕES no período:", data_inicio_str, 'até', data_fim_str)
         for adocao in adocoes_filtradas:
             print(f"Animal: {adocao.animal.nome}, Adotante: {adocao.adotante.nome}, Data: {adocao.data_adocao}")
 

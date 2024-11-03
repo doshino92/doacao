@@ -13,7 +13,7 @@ class Adocao:
         self.__doador = doador
 
 
-        self.__animal.adotado = True # marca no Animal que foi Adotado
+        self.__animal.adotado = False # marca no Animal que foi Adotado
 
     @property
     def data_adocao(self):

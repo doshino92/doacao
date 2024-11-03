@@ -1,3 +1,4 @@
+
 from doador import Doador
 from animal import Animal
 from doacao import Doacao
@@ -46,9 +47,10 @@ ong.registrar_doacao(doacao3)
 #criando registros de Adoação na ONG, passando adoação e animal
 ong.registrar_adocao(adocao1)
 ong.registrar_adocao(adocao2)
+ong.registrar_adocao(adocao3)
 
-ong.doacoes_por_periodo('01-01-2000', '31-12-2024')
-ong.adocoes_por_periodo("01-01-2021", "31-12-2022")
+ong.doacoes_por_periodo('01-01-1000', '31-12-2024')
+ong.adocoes_por_periodo("01-01-1021", "31-12-2022")
 
 #mostrando os animais disponíveis para Doção
 ong.animais_disponiveis()

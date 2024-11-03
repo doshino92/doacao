@@ -1,9 +1,12 @@
+from vacina import Vacina
+from datetime import date
+from registroVacina import RegistroVacina
+
 class Animal:
-    def __init__(self, nome: str, raca: str, vacina: str, adotado:bool = None ):
+    def __init__(self, nome: str, raca: str, adotado: bool = False):
         self.__nome = nome
         self.__raca = raca
-        self.__vacina = vacina
-        self.__adotado = None
+        self.__adotado = adotado
 
     @property
     def nome(self):
@@ -20,14 +23,6 @@ class Animal:
     @raca.setter
     def raca(self, nova_raca: str):
         self.__raca = nova_raca
-
-    @property
-    def vacina(self):
-        return self.__vacina
-
-    @vacina.setter
-    def vacina(self, nova_vacina: str):
-        self.__vacina = nova_vacina
 
     @property
     def adotado(self):
