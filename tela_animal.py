@@ -21,12 +21,15 @@ class TelaAnimal():
         nome = input('Nome: ')
         chip = input('Chip: ')
         cpf_doador = input('CPF do doador: ')
-        raca = None
+        raca = 'cachorro'
         porte = None
+        hepatite = None
+        leptospirose = None
+        raiva = None
         while porte != 'pequeno' and porte != 'médio' and porte != 'grande':
             porte = input('O animal é pequeno, médio ou grande?\n')
-        
-        hepatite = None
+
+
         while hepatite != bool:
             hepatite = input('Vacinado contra hepatite?')
             if hepatite == 'sim':
@@ -37,8 +40,8 @@ class TelaAnimal():
                 resposta_H = 'não'
             else:
                 print('Responda com *sim* ou *não*')
-        
-        leptospirose = None
+
+
         while leptospirose != bool:
             leptospirose = input('Vacinado contra leptospirose?')
             if leptospirose == 'sim':
@@ -49,9 +52,8 @@ class TelaAnimal():
                 resposta_L = 'não'
             else:
                 print('Responda com *sim* ou *não*')
-            
-            
-        raiva = None
+
+
         while raiva != bool:   
             raiva = input('Vacinado contra raiva?')
             if raiva == 'sim':
@@ -62,27 +64,18 @@ class TelaAnimal():
                 resposta_R = 'não'
             else:
                 print('Responda com *sim* ou *não*')
-        
 
-            return{'Nome: ':nome, 'Chip: ':chip, 'CPF: ':cpf_doador, 'Raca: ':raca, 'Porte ':porte, 'Vacinado contra leptospirose: ':resposta_H, 'Vacinado contra hepatete: ':resposta_L, 'Vacinado contra raiva: ': resposta_R}
+
+        return{'Nome: ':nome, 'Chip: ':chip, 'CPF: ':cpf_doador, 'Raca: ':raca, 'Porte ':porte, 'Vacinado contra leptospirose: ':resposta_H, 'Vacinado contra hepatete: ':resposta_L, 'Vacinado contra raiva: ': resposta_R}
         
-    def dados_cachorro(self):
+    def dados_gato(self):
         print('----- DADOS ANIMAIS -----')
         nome = input('Nome: ')
         chip = input('Chip: ')
         cpf_doador = input('CPF do doador: ')
-        raca = None
-        while raca != 'cachorro' and raca != 'gato':
-            raca = input('Raca: ')
-            if raca == 'cachorro':
-                porte = None
-                while porte != 'pequeno' and porte != 'médio' and porte != 'grande':
-                    porte = input('O animal é pequeno, médio ou grande?\n')
-                    
-            elif raca =='gato':
-                pass
-            else:
-                print('Responda com *cachorro* ou *gato*')
+        raca = 'gato'
+        porte = None
+
         
         hepatite = None
         while hepatite != bool:
@@ -120,5 +113,6 @@ class TelaAnimal():
                 resposta_R = 'não'
             else:
                 print('Responda com *sim* ou *não*')
-            return{'Nome: ':nome, 'Chip: ':chip, 'CPF: ':cpf_doador, 'Raca: ':raca, 'Vacinado contra leptospirose: ':resposta_H, 'Vacinado contra hepatete: ':resposta_L, 'Vacinado contra raiva: ': resposta_R}
+                
+        return{'Nome: ':nome, 'Chip: ':chip, 'CPF: ':cpf_doador, 'Raca: ':raca, 'Vacinado contra leptospirose: ':resposta_H, 'Vacinado contra hepatete: ':resposta_L, 'Vacinado contra raiva: ': resposta_R}
         

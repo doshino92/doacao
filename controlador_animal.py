@@ -38,3 +38,27 @@ class ControladorAnimal():
 
         self.__animal.append(animal)
         self.__cachorros.append(animal)
+        
+    def mostra_animal(self, animal:Animal):
+        if not isinstance(animal, Animal):
+            return
+        
+        dados = {}
+        dados['nome'] = animal.nome
+        dados['chip'] = animal.chip
+        dados['raca'] = animal.raca
+        if animal.raca == 'cachorro':
+            dados['porte'] = animal.porte
+        dados['hepatite'] = animal.hepatite
+        dados['leptospirose'] = animal.leptospirose
+        dados['raiva'] = animal.raiva
+    
+    def listar_animal(self, chip):
+        i = 0
+        while i < len(self.__animal):
+            animal = self.__animal[i]
+            if animal.chip == chip:
+                return animal
+
+            i = i + 1
+        return None

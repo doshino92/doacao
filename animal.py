@@ -5,27 +5,43 @@ from typing import List
 
 
 class Animal:
-    def __init__(self,chip: str, nome: str, raca: str, porte: TipoPorte,
-                 tipo_animal: TipoAnimal, adotado: bool = False):
-        self.__chip = None
+    def __init__(self, nome: str, chip: str, cpf_doador: int, raca: str, porte: str, hepatite: bool, leptospirose: bool, raiva: bool):
         self.__nome = None
+        self.__chip = None
+        self.__cpf_doador = None
         self.__raca = None
         self.__porte = None
-        self.__tipo_animal = None
-        self.__adotado = None
+        self.__hepatite = None
+        self.__leptospirose = None
+        self.__raiva = None
         self.__vacinas = []
-
-        if isinstance(chip, str):
-            self.__chip = chip
-
+    
         if isinstance(nome, str):
             self.__nome = nome
 
-        if isinstance(raca, TipoAnimal):
-            self.__raca = raca
+        if isinstance(chip, str):
+            self.__chip = chip
+        
+        if isinstance(cpf_doador, int):
+            self.__cpf_doador = cpf_doador
 
-        if isinstance(adotado, bool):
-            self.__adotado = adotado
+        if isinstance(raca, str):
+            if raca == 'cachorro' or raca == 'gato':
+                self.__raca = raca
+                
+        if isinstance(porte, str):
+            if raca == 'cachorro':
+                self.__porte = porte
+        
+        if isinstance(hepatite, bool):
+            self.__hepatite = hepatite
+        
+        if isinstance(leptospirose, bool):
+            self.__leptospirose = leptospirose
+        
+        if isinstance(raiva, bool):
+            self.__raiva = raiva
+        
 
     @property
     def chip(self):
@@ -51,8 +67,9 @@ class Animal:
 
     @raca.setter
     def raca(self, nova_raca: str):
-        if isinstance(nova_raca, TipoAnimal):
-            self.__raca = nova_raca
+        if isinstance(nova_raca, str):
+            if nova_raca == 'cachorro' or nova_raca == 'gato':
+                self.__raca = nova_raca
 
     @property
     def porte(self):
@@ -61,14 +78,33 @@ class Animal:
     @porte.setter
     def porte(self, novo_porte: TipoPorte):
         self.__porte = novo_porte
-
+        
     @property
-    def tipo_animal(self):
-        return self.__tipo_animal
+    def hepatite(self):
+        return self.__hepatite
+    
+    @hepatite.setter
+    def hepatite(self, hepatite):
+        if isinstance(hepatite, bool):
+            self.__hepatite = hepatite
+    
+    @property
+    def leptospirose(self):
+        return self.__leptospirose
 
-    @tipo_animal.setter
-    def tipo_animal(self, novo_tipo_animal: TipoAnimal):
-        self.__tipo_animal = novo_tipo_animal
+    @leptospirose.setter
+    def leptospirose(self, leptospirose):
+        if isinstance(leptospirose, bool):
+            self.__leptospirose = leptospirose
+    
+    @property
+    def raiva(self):
+        return self.__raiva
+
+    @raiva.setter
+    def raiva(self, raiva):
+        if isinstance(raiva, bool):
+            self.__raiva = raiva
 
     @property
     def vacinas(self) -> List[Vacina]:
@@ -76,14 +112,6 @@ class Animal:
 
     def adicionar_vacina(self, vacina: Vacina):
         self.__vacinas.append(vacina)
-
-    @property
-    def adotado(self):
-        return self.__adotado
-
-    @adotado.setter
-    def adotado(self, novo_adotado: bool):
-        self.__adotado = novo_adotado
 
     def mostrar_vacinas(self):
         if not self.vacinas:
