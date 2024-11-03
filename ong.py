@@ -3,6 +3,8 @@ from animal import Animal
 from doacao import Doacao
 from datetime import datetime
 
+from vacina import Vacina
+
 
 class Ong:
     def __init__(self, animais: list[Animal], doacoes: list[Doacao], adocoes: list[Adocao] ):
@@ -44,7 +46,7 @@ class Ong:
 
     def animais_disponiveis(self):
         print("\nAnimais Disponíveis para Adoção:")
-        disponiveis = [animal for animal in self.__animais if not animal.adotado ]  # Verifica se o animal tem todas as vacinas e não foi adotado
+        disponiveis = [animal for animal in self.__animais if not animal.adotado ]  # Verifica se o animal não foi adotado
         for animal in disponiveis:
             print(animal.nome)
         return disponiveis
@@ -90,3 +92,10 @@ class Ong:
             print(f"Animal: {doacao.animal.nome}, Adotante: {doacao.doador.nome}, Data: {doacao.data_doacao}")
 
         return doacoes_filtradas
+
+    def vacinar_animais_disponiveis(self, vacina: Vacina):
+        print("\nVacinação dos Animais Disponíveis:")
+        for animal in self.__animais:
+            if not animal.adotado:
+                animal.adicionar_vacina(vacina)
+                print(f"Vacina {vacina.tipo.value} aplicada em {animal.nome}.")
