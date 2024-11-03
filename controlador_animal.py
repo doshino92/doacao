@@ -35,7 +35,7 @@ class ControladorAnimal():
         self.__animal.append(animal)
         self.__cachorros.append(animal)
     
-    def altera_animal(self, animal:Animal):
+    def alterar_animal(self, animal:Animal):
         self.listar_animais()
         
         chip = self.__tela_animal.solicitar_input('chip do animal: ')
@@ -66,7 +66,18 @@ class ControladorAnimal():
                 
         return
         
-        
+    def excluir_animal(self, animal:Animal, chip):
+        animal = self.pega_animal_por_chip(chip)
+        if animal != None:
+            if animal.raca == 'cachorro':
+                self.__cachorros.remove(animal)
+            else:
+                if animal.raca == 'cachorro':
+                    self.__gatos.remove(animal)
+
+            self.__gatos.remove(animal)        
+        return None  
+
     def mostra_animal(self, animal:Animal):
         if not isinstance(animal, Animal):
             return
