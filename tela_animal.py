@@ -3,35 +3,32 @@
 class TelaAnimal():
     def tela_inicial(self):
         print('----------ANIMAIS----------')
-        print('1 - Incluir Animal')
-        print('2 - Alterar Animal')
-        print('3 - Excluir Animal')
-        print('4 - Listar Animais')
-        print('5 - Listar Cachorros')
-        print('6 - Listar Gatos')
+        print('1 - Incluir Cachorro')
+        print('2 - Incluir Gato')
+        print('3 - Alterar Animal')
+        print('4 - Excluir Animal')
+        print('5 - Mostrar Animal')
+        print('6 - Listar Animais')
+        print('7 - Listar Cachorros')
+        print('8 - Listar Gatos')
         print('0 - Retornar')
     
         opcao = int(input('Escolha a opcao: '))
         return opcao
 
-    def adiciona_animal(self):
+    def dados_cachorro(self):
         print('----- DADOS ANIMAIS -----')
         nome = input('Nome: ')
         chip = input('Chip: ')
-        cpf_daodor = input('CPF do doador: ')
+        cpf_doador = input('CPF do doador: ')
         raca = None
-        while raca != 'cachorro' and raca != 'gato':
-            raca = input('Raca: ')
-            if raca == 'cachorro':
-                porte = input('Porte: ')
-            elif raca =='gato':
-                pass
-            else:
-                print('Responda com *cachorro* ou *gato*')
+        porte = None
+        while porte != 'pequeno' and porte != 'médio' and porte != 'grande':
+            porte = input('O animal é pequeno, médio ou grande?\n')
         
         hepatite = None
         while hepatite != bool:
-            hepatite = input('Vacinado contra hepatite? \n')
+            hepatite = input('Vacinado contra hepatite?')
             if hepatite == 'sim':
                 hepatite = True
                 resposta_H = 'sim'
@@ -43,7 +40,7 @@ class TelaAnimal():
         
         leptospirose = None
         while leptospirose != bool:
-            leptospirose = input('Vacinado contra leptospirose? \n')
+            leptospirose = input('Vacinado contra leptospirose?')
             if leptospirose == 'sim':
                 leptospirose = True
                 resposta_L = 'sim'
@@ -56,7 +53,7 @@ class TelaAnimal():
             
         raiva = None
         while raiva != bool:   
-            raiva = input('Vacinado contra raiva? \n')
+            raiva = input('Vacinado contra raiva?')
             if raiva == 'sim':
                 raiva = True
                 resposta_R = 'sim'
@@ -67,11 +64,61 @@ class TelaAnimal():
                 print('Responda com *sim* ou *não*')
         
 
-        if raca == 'cachorro':
-            return{'Nome: ':nome, 'Chip: ':chip, 'CPF: ':cpf_daodor, 'Raca: ':raca, 'Porte ':porte, 'Vacinado contra leptospirose: ':resposta_H, 'Vacinado contra hepatete: ':resposta_L, 'Vacinado contra raiva: ': resposta_R}
+            return{'Nome: ':nome, 'Chip: ':chip, 'CPF: ':cpf_doador, 'Raca: ':raca, 'Porte ':porte, 'Vacinado contra leptospirose: ':resposta_H, 'Vacinado contra hepatete: ':resposta_L, 'Vacinado contra raiva: ': resposta_R}
         
-        else:
-            return{'Nome: ':nome, 'Chip: ':chip, 'CPF: ':cpf_daodor, 'Raca: ':raca, 'Vacinado contra leptospirose: ':resposta_H, 'Vacinado contra hepatete: ':resposta_L, 'Vacinado contra raiva: ': resposta_R}
+    def dados_cachorro(self):
+        print('----- DADOS ANIMAIS -----')
+        nome = input('Nome: ')
+        chip = input('Chip: ')
+        cpf_doador = input('CPF do doador: ')
+        raca = None
+        while raca != 'cachorro' and raca != 'gato':
+            raca = input('Raca: ')
+            if raca == 'cachorro':
+                porte = None
+                while porte != 'pequeno' and porte != 'médio' and porte != 'grande':
+                    porte = input('O animal é pequeno, médio ou grande?\n')
+                    
+            elif raca =='gato':
+                pass
+            else:
+                print('Responda com *cachorro* ou *gato*')
         
+        hepatite = None
+        while hepatite != bool:
+            hepatite = input('Vacinado contra hepatite?')
+            if hepatite == 'sim':
+                hepatite = True
+                resposta_H = 'sim'
+            elif hepatite == 'não':
+                hepatite = False
+                resposta_H = 'não'
+            else:
+                print('Responda com *sim* ou *não*')
         
-        def 
+        leptospirose = None
+        while leptospirose != bool:
+            leptospirose = input('Vacinado contra leptospirose?')
+            if leptospirose == 'sim':
+                leptospirose = True
+                resposta_L = 'sim'
+            elif leptospirose == 'não':
+                leptospirose = False
+                resposta_L = 'não'
+            else:
+                print('Responda com *sim* ou *não*')
+            
+            
+        raiva = None
+        while raiva != bool:   
+            raiva = input('Vacinado contra raiva?')
+            if raiva == 'sim':
+                raiva = True
+                resposta_R = 'sim'
+            elif raiva == 'não':
+                raiva = False
+                resposta_R = 'não'
+            else:
+                print('Responda com *sim* ou *não*')
+            return{'Nome: ':nome, 'Chip: ':chip, 'CPF: ':cpf_doador, 'Raca: ':raca, 'Vacinado contra leptospirose: ':resposta_H, 'Vacinado contra hepatete: ':resposta_L, 'Vacinado contra raiva: ': resposta_R}
+        
