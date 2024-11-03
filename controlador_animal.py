@@ -100,7 +100,6 @@ class ControladorAnimal():
 
             i = i + 1
 
-
     def listar_cachorros(self, cachorro:Animal):
         i = 0
         while i < len(self.__cachorros):
@@ -116,5 +115,3 @@ class ControladorAnimal():
             self.mostra_animal(gato[i])
 
             i = i + 1
-    
-    
