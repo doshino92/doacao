@@ -7,20 +7,34 @@ from typing import List
 class Animal:
     def __init__(self,chip: str, nome: str, raca: str, porte: TipoPorte,
                  tipo_animal: TipoAnimal, adotado: bool = False):
-        self.__chip = chip
-        self.__nome = nome
-        self.__raca = raca
-        self.__porte = porte
-        self.__tipo_animal = tipo_animal
-        self.__adotado = adotado
+        self.__chip = None
+        self.__nome = None
+        self.__raca = None
+        self.__porte = None
+        self.__tipo_animal = None
+        self.__adotado = None
         self.__vacinas = []
+        
+        if isinstance(chip, str):
+            self.__chip = chip
+            
+        if isinstance(nome, str):
+            self.__nome = nome
+        
+        if isinstance(raca, TipoAnimal):
+            self.__raca = raca
+        
+        if isinstance(adotado, bool):
+            self.__adotado = adotado
+ 
     @property
     def chip(self):
         return self.__chip
 
     @chip.setter
     def chip(self, novo_chip: str):
-        self.__chip = novo_chip
+        if isinstance(novo_chip, str):
+            self.__chip = novo_chip
 
     @property
     def nome(self):
@@ -28,7 +42,8 @@ class Animal:
 
     @nome.setter
     def nome(self, novo_nome: str):
-        self.__nome = novo_nome
+        if isinstance(novo_nome, str):
+            self.__nome = novo_nome
 
     @property
     def raca(self):
@@ -36,7 +51,8 @@ class Animal:
 
     @raca.setter
     def raca(self, nova_raca: str):
-        self.__raca = nova_raca
+        if isinstance(nova_raca, TipoAnimal):
+            self.__raca = nova_raca
 
     @property
     def porte(self):
@@ -68,3 +84,11 @@ class Animal:
     @adotado.setter
     def adotado(self, novo_adotado: bool):
         self.__adotado = novo_adotado
+
+    def mostrar_vacinas(self):
+        if not self.vacinas:
+            print(f"{self.nome} não recebeu vacinas.")
+            return
+        print(f"Vacinas de {self.nome}:")
+        for vacina in self.vacinas:
+            print(f"- {vacina.tipo.value} ")
