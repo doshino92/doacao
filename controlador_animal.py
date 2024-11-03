@@ -1,8 +1,5 @@
 from tela_animal import TelaAnimal
 from animal import Animal
-from tipos import TipoAnimal
-from tipos import TipoPorte
-from tipos import TipoVacina
 
 
 class ControladorAnimal():
@@ -11,7 +8,6 @@ class ControladorAnimal():
         self.__animal = []
         self.__cachorros = []
         self.__gatos = []
-        self.__tela_animal = TelaAnimal
         self.__ong = ong
 
 
@@ -52,13 +48,30 @@ class ControladorAnimal():
         dados['hepatite'] = animal.hepatite
         dados['leptospirose'] = animal.leptospirose
         dados['raiva'] = animal.raiva
+        
+        self.__tela_animal.mostrar_animal(dados)
     
-    def listar_animal(self, chip):
+    def listar_animal(self, animal:Animal):
         i = 0
         while i < len(self.__animal):
             animal = self.__animal[i]
-            if animal.chip == chip:
-                return animal
+            self.mostra_animal(animal[i])
 
             i = i + 1
-        return None
+
+
+    def listar_cachorros(self, cachorro:Animal):
+        i = 0
+        while i < len(self.__cachorros):
+            cachorro = self.__cachorros[i]
+            self.mostra_animal(cachorro[i])
+
+            i = i + 1
+    
+    def listar_gatos(self, gato:Animal):
+        i = 0
+        while i < len(self.__gatos):
+            gato = self.__gatos[i]
+            self.mostra_animal(gato[i])
+
+            i = i + 1

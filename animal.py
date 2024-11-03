@@ -14,7 +14,6 @@ class Animal:
         self.__hepatite = None
         self.__leptospirose = None
         self.__raiva = None
-        self.__vacinas = []
     
         if isinstance(nome, str):
             self.__nome = nome
@@ -44,15 +43,6 @@ class Animal:
         
 
     @property
-    def chip(self):
-        return self.__chip
-
-    @chip.setter
-    def chip(self, novo_chip: str):
-        if isinstance(novo_chip, str):
-            self.__chip = novo_chip
-
-    @property
     def nome(self):
         return self.__nome
 
@@ -60,6 +50,24 @@ class Animal:
     def nome(self, novo_nome: str):
         if isinstance(novo_nome, str):
             self.__nome = novo_nome
+    
+    @property
+    def chip(self):
+        return self.__chip
+
+    @chip.setter
+    def chip(self, chip: str):
+        if isinstance(chip, str):
+            self.__chip = chip
+
+    @property
+    def cpf_doador(self):
+        return self.__cpf_doador
+
+    @cpf_doador.setter
+    def cpf_doador(self, cpf_doador: str):
+        if isinstance(cpf_doador, str):
+            self.__nome = cpf_doador
 
     @property
     def raca(self):
@@ -105,18 +113,3 @@ class Animal:
     def raiva(self, raiva):
         if isinstance(raiva, bool):
             self.__raiva = raiva
-
-    @property
-    def vacinas(self) -> List[Vacina]:
-        return self.__vacinas
-
-    def adicionar_vacina(self, vacina: Vacina):
-        self.__vacinas.append(vacina)
-
-    def mostrar_vacinas(self):
-        if not self.vacinas:
-            print(f"{self.nome} não recebeu vacinas.")
-            return
-        print(f"Vacinas de {self.nome}:")
-        for vacina in self.vacinas:
-            print(f"- {vacina.tipo.value} ")
