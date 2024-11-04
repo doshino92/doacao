@@ -4,7 +4,6 @@ from doacao import Doacao
 from adocao import Adocao
 from adotante import Adotante
 from ong import Ong
-from vacina import Vacina
 from porte import Porte
 from moradia import Moradia
 
