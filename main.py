@@ -5,6 +5,8 @@ from adocao import Adocao
 from adotante import Adotante
 from ong import Ong
 from moradia import Moradia
+from controlador_animal import ControladorAnimal
+from tela_animal import TelaAnimal
 
 
 # criando adotantes
