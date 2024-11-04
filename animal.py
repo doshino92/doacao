@@ -1,7 +1,3 @@
-from tipos import TipoPorte
-from tipos import TipoAnimal
-from vacina import Vacina
-from typing import List
 
 
 class Animal:
@@ -82,7 +78,7 @@ class Animal:
         return self.__porte
 
     @porte.setter
-    def porte(self, novo_porte: TipoPorte):
+    def porte(self, novo_porte: str):
         self.__porte = novo_porte
         
     @property
