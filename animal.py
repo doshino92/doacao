@@ -5,7 +5,7 @@ from typing import List
 
 
 class Animal:
-    def __init__(self, nome: str, chip: str, cpf_doador: int, raca: str, porte: str, hepatite: bool, leptospirose: bool, raiva: bool):
+    def __init__(self, nome: str, chip: str, cpf_doador: int, raca: str, porte: str, hepatite: bool, leptospirose: bool, raiva: bool, data_aplicacao_H: str, data_aplicacao_L: str, data_aplicacao_R: str):
         self.__nome = None
         self.__chip = None
         self.__cpf_doador = None
@@ -14,6 +14,9 @@ class Animal:
         self.__hepatite = None
         self.__leptospirose = None
         self.__raiva = None
+        self.__data_aplicacao_H = None
+        self.__data_aplicacao_L = None
+        self.__data_aplicacao_R = None
     
         if isinstance(nome, str):
             self.__nome = nome
@@ -41,6 +44,14 @@ class Animal:
         if isinstance(raiva, bool):
             self.__raiva = raiva
         
+        if isinstance(data_aplicacao_H, str):
+            self.__data_aplicacao_H = data_aplicacao_H
+        
+        if isinstance(data_aplicacao_L, str):
+            self.__data_aplicacao_L = data_aplicacao_L
+        
+        if isinstance(data_aplicacao_R, str):
+            self.__data_aplicacao_H = data_aplicacao_R
 
     @property
     def nome(self):
@@ -113,3 +124,30 @@ class Animal:
     def raiva(self, raiva):
         if isinstance(raiva, bool):
             self.__raiva = raiva
+    
+    @property
+    def data_aplicacao_H(self):
+        return self.__data_aplicacao_H
+
+    @data_aplicacao_H.setter
+    def data_aplicacao_H(self, data_aplicacao_H):
+        if isinstance(data_aplicacao_H, str):
+            self.__data_aplicacao_H = data_aplicacao_H
+    
+    @property
+    def data_aplicacao_L(self):
+        return self.__data_aplicacao_L
+
+    @data_aplicacao_L.setter
+    def data_aplicacao_L(self, data_aplicacao_L):
+        if isinstance(data_aplicacao_L, str):
+            self.__data_aplicacao_L = data_aplicacao_L
+    
+    @property
+    def data_aplicacao_R(self):
+        return self.__data_aplicacao_R
+
+    @data_aplicacao_R.setter
+    def data_aplicacao_R(self, data_aplicacao_R):
+        if isinstance(data_aplicacao_R, str):
+            self.__data_aplicacao_R = data_aplicacao_R

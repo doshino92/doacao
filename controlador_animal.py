@@ -17,20 +17,20 @@ class ControladorAnimal():
                 return animal
         return None
 
-    def incluir_cachorro(self, nome, chip, cpf_doador, raca, porte, hepatite, leptospirose, raiva):
+    def incluir_cachorro(self, nome, chip, raca, porte, hepatite, leptospirose, raiva, data_aplicacao_H, data_aplicacao_L, data_aplicacao_R):
         if self.pega_animal_por_chip(chip) != None:
             return
 
-        animal = Animal(nome=nome, chip=chip, cpf_doador=cpf_doador, raca=raca, porte=porte, hepatite=hepatite, leptospirose=leptospirose, raiva=raiva)
+        animal = Animal(nome=nome, chip=chip, raca=raca, porte=porte, hepatite=hepatite, leptospirose=leptospirose, raiva=raiva)
 
         self.__animal.append(animal)
         self.__cachorros.append(animal)
 
-    def incluir_gato(self, nome, chip, cpf_doador, raca, hepatite, leptospirose, raiva):
+    def incluir_gato(self, nome, chip, raca, hepatite, leptospirose, raiva, data_aplicacao_H, data_aplicacao_L, data_aplicacao_R):
         if self.pega_animal_por_chip(chip) != None:
             return
 
-        animal = Animal(nome=nome, chip=chip, cpf_doador=cpf_doador, raca=raca, hepatite=hepatite, leptospirose=leptospirose, raiva=raiva)
+        animal = Animal(nome=nome, chip=chip, raca=raca, hepatite=hepatite, leptospirose=leptospirose, raiva=raiva)
 
         self.__animal.append(animal)
         self.__cachorros.append(animal)
@@ -47,23 +47,27 @@ class ControladorAnimal():
                 novos_dados_animal = self.__tela_animal.dados_cachorro()
                 animal.nome = novos_dados_animal['nome']
                 animal.chip = novos_dados_animal['chip']
-                animal.cpf_doador = novos_dados_animal['CPF do doador']
                 animal.raca = 'cachorro'
                 animal.porte = novos_dados_animal['porte']
                 animal.hepatite = novos_dados_animal['hepatite']
                 animal.leptospirose = novos_dados_animal['leptospirose']
                 animal.raiva = novos_dados_animal['raiva']
-            
+                animal.data_aplicacao_H = novos_dados_animal['data_aplicacao_Hepatite']
+                animal.data_aplicacao_L = novos_dados_animal['data_aplicacao_Leptospirose']
+                animal.data_aplicacao_R = novos_dados_animal['data_aplicacao_Raiva']
+
             else:
                 novos_dados_animal = self.__tela_animal.dados_gato()
                 animal.nome = novos_dados_animal['nome']
                 animal.chip = novos_dados_animal['chip']
-                animal.cpf_doador = novos_dados_animal['CPF do doador']
                 animal.raca = 'gato'
                 animal.hepatite = novos_dados_animal['hepatite']
                 animal.leptospirose = novos_dados_animal['leptospirose']
                 animal.raiva = novos_dados_animal['raiva']
-                
+                animal.data_aplicacao_H = novos_dados_animal['data_aplicacao_Hepatite']
+                animal.data_aplicacao_L = novos_dados_animal['data_aplicacao_Leptospirose']
+                animal.data_aplicacao_R = novos_dados_animal['data_aplicacao_Raiva']
+
         return
         
     def excluir_animal(self, animal:Animal, chip):
