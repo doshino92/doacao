@@ -6,6 +6,7 @@ from adotante import Adotante
 from ong import Ong
 from moradia import Moradia
 
+
 # criando adotantes
 adotante1 = Adotante('Marcos', '11221643606','Florianópolis',1992,9,19, Moradia.CASA,False,False)
 adotante2 = Adotante('Val', '333111333','Sao Jose',2010,2,13,Moradia.CASA,False,False)
