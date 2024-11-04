@@ -12,7 +12,22 @@ class Adocao:
         self.__termo = None
         self.__doador = doador
 
+        if isinstance(self.__data_adocao, date):
+            self.__data_adocao = date(ano, mes, dia)
 
+        if isinstance(animal, Animal):
+            self.__animal = animal
+
+        if isinstance(adotante, Adotante):
+            self.__adotante = adotante
+
+        if isinstance(termo, bool):
+            self.__termo = termo
+
+        if isinstance(doador, Doador):
+            self.__doador = doador
+
+        #if isinstance(self.__animal.adotado, Animal):
         self.__animal.adotado = False # marca no Animal que foi Adotado
 
     @property
@@ -21,12 +36,9 @@ class Adocao:
 
     @data_adocao.setter
     def data_adocao(self, nova_data_adocao):
-        try:
-            dia, mes, ano = map(int, nova_data_adocao.split(
-                '-'))  # split força o usuario a coloca traço entre as datas e ajusto para dia, mes ano
-            self.__data_adocao = date(ano, mes, dia)  # map(int)  força string a virar um inteiro
-        except ValueError:
-            raise ValueError("A data deve estar entre traços Ex: DD-MM-AAAA")
+        if isinstance(nova_data_adocao, date):
+            dia, mes, ano = map(int, nova_data_adocao.split('-'))
+            self.__data_adocao = date(ano, mes, dia)
 
     @property
     def animal(self):
@@ -34,7 +46,8 @@ class Adocao:
 
     @animal.setter
     def animal(self, novo_animal: Animal):
-        self.__animal = novo_animal
+        if isinstance(novo_animal, Animal):
+            self.__animal = novo_animal
 
 
     @property
@@ -43,7 +56,8 @@ class Adocao:
 
     @adotante.setter
     def adotante(self, novo_adotante: Adotante):
-        self.__adotante = novo_adotante
+        if isinstance(novo_adotante, Adotante):
+            self.__adotante = novo_adotante
 
     @property
     def termo(self):
@@ -51,7 +65,8 @@ class Adocao:
 
     @termo.setter
     def termo(self, novo_termo: bool):
-        self.__termo = novo_termo
+         if isinstance(novo_termo, bool):
+            self.__termo = novo_termo
 
     @property
     def doador(self):
@@ -59,4 +74,5 @@ class Adocao:
 
     @doador.setter
     def doador(self, novo_doador: Doador):
-        self.__doador = novo_doador
+        if isinstance(novo_doador, Doador):
+            self.__doador = novo_doador

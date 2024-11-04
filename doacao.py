@@ -10,17 +10,27 @@ class Doacao:
         self.__doador = doador
         self.__motivo = motivo
 
+        if isinstance(self.data_doacao, date):
+            self.__data_doacao = date(ano,mes,dia)
+
+        if isinstance(self.animal, Animal):
+            self.__animal = animal
+
+        if isinstance(self.doador, Doador):
+            self.__doador = doador
+
+        if isinstance(self.motivo, str):
+            self.__motivo = motivo
+
     @property
     def data_doacao(self):
         return self.__data_doacao
 
     @data_doacao.setter
     def data_doacao(self, nova_data_doacao):
-        try:
-            dia, mes, ano = map(int, nova_data_doacao.split('-')) #split força o usuario a coloca traço entre as datas e ajusto para dia, mes ano
+        if isinstance(nova_data_doacao, Doacao):
+            dia, mes, ano = map(int, nova_data_doacao.split('-')) #split coloca traço entre as datas e ajusta para dia, mes ano
             self.__data_doacao = date(ano, mes, dia)              #map(int)  força string a virar um inteiro
-        except ValueError:
-            raise ValueError("A data deve estar entre traços Ex: DD-MM-AAAA")
 
     @property
     def animal(self):
@@ -28,7 +38,8 @@ class Doacao:
 
     @animal.setter
     def animal(self, novo_animal: Animal):
-        self.__animal = novo_animal
+        if isinstance(novo_animal, Animal):
+            self.__animal = novo_animal
 
     @property
     def doador(self):
@@ -36,7 +47,8 @@ class Doacao:
 
     @doador.setter
     def doador(self, novo_doador: Doador):
-        self.__doador = novo_doador
+         if isinstance(novo_doador, Doador):
+            self.__doador = novo_doador
 
     @property
     def motivo(self):
@@ -44,7 +56,8 @@ class Doacao:
 
     @motivo.setter
     def motivo(self, novo_motivo: str):
-        self.__motivo = novo_motivo
+        if isinstance(novo_motivo, str):
+            self.__motivo = novo_motivo
 
 
 

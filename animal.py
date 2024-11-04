@@ -1,26 +1,50 @@
-from tipos import TipoPorte
-from tipos import TipoAnimal
-from vacina import Vacina
-from typing import List
-
+from porte import Porte
 
 class Animal:
-    def __init__(self,chip: str, nome: str, raca: str, porte: TipoPorte,
-                 tipo_animal: TipoAnimal, adotado: bool = False):
-        self.__chip = chip
-        self.__nome = nome
-        self.__raca = raca
-        self.__porte = porte
-        self.__tipo_animal = tipo_animal
-        self.__adotado = adotado
-        self.__vacinas = []
-    @property
-    def chip(self):
-        return self.__chip
+    def __init__(self, nome: str, chip: str, raca: str, porte: Porte, hepatite: bool, leptospirose: bool, raiva: bool,
+                 data_aplicacao_H: str, data_aplicacao_L: str, data_aplicacao_R: str):
+        self.__nome = None
+        self.__chip = None
+        self.__raca = None
+        self.__porte = None
+        self.__hepatite = None
+        self.__leptospirose = None
+        self.__raiva = None
+        self.__data_aplicacao_H = None
+        self.__data_aplicacao_L = None
+        self.__data_aplicacao_R = None
 
-    @chip.setter
-    def chip(self, novo_chip: str):
-        self.__chip = novo_chip
+        if isinstance(nome, str):
+            self.__nome = nome
+
+        if isinstance(chip, str):
+            self.__chip = chip
+
+        if isinstance(raca, str):
+            if raca == 'cachorro' or raca == 'gato':
+                self.__raca = raca
+
+        if isinstance(porte, Porte):
+            if raca == 'cachorro':
+                self.__porte = porte
+
+        if isinstance(hepatite, bool):
+            self.__hepatite = hepatite
+
+        if isinstance(leptospirose, bool):
+            self.__leptospirose = leptospirose
+
+        if isinstance(raiva, bool):
+            self.__raiva = raiva
+
+        if isinstance(data_aplicacao_H, str):
+            self.__data_aplicacao_H = data_aplicacao_H
+
+        if isinstance(data_aplicacao_L, str):
+            self.__data_aplicacao_L = data_aplicacao_L
+
+        if isinstance(data_aplicacao_R, str):
+            self.__data_aplicacao_H = data_aplicacao_R
 
     @property
     def nome(self):
@@ -28,7 +52,17 @@ class Animal:
 
     @nome.setter
     def nome(self, novo_nome: str):
-        self.__nome = novo_nome
+        if isinstance(novo_nome, str):
+            self.__nome = novo_nome
+
+    @property
+    def chip(self):
+        return self.__chip
+
+    @chip.setter
+    def chip(self, chip: str):
+        if isinstance(chip, str):
+            self.__chip = chip
 
     @property
     def raca(self):
@@ -36,35 +70,68 @@ class Animal:
 
     @raca.setter
     def raca(self, nova_raca: str):
-        self.__raca = nova_raca
+        if isinstance(nova_raca, str):
+            if nova_raca == 'cachorro' or nova_raca == 'gato':
+                self.__raca = nova_raca
 
     @property
     def porte(self):
         return self.__porte
 
     @porte.setter
-    def porte(self, novo_porte: TipoPorte):
+    def porte(self, novo_porte: Porte):
         self.__porte = novo_porte
 
     @property
-    def tipo_animal(self):
-        return self.__tipo_animal
+    def hepatite(self):
+        return self.__hepatite
 
-    @tipo_animal.setter
-    def tipo_animal(self, novo_tipo_animal: TipoAnimal):
-        self.__tipo_animal = novo_tipo_animal
-
-    @property
-    def vacinas(self) -> List[Vacina]:
-        return self.__vacinas
-
-    def adicionar_vacina(self, vacina: Vacina):
-        self.__vacinas.append(vacina)
+    @hepatite.setter
+    def hepatite(self, hepatite):
+        if isinstance(hepatite, bool):
+            self.__hepatite = hepatite
 
     @property
-    def adotado(self):
-        return self.__adotado
+    def leptospirose(self):
+        return self.__leptospirose
 
-    @adotado.setter
-    def adotado(self, novo_adotado: bool):
-        self.__adotado = novo_adotado
+    @leptospirose.setter
+    def leptospirose(self, leptospirose):
+        if isinstance(leptospirose, bool):
+            self.__leptospirose = leptospirose
+
+    @property
+    def raiva(self):
+        return self.__raiva
+
+    @raiva.setter
+    def raiva(self, raiva):
+        if isinstance(raiva, bool):
+            self.__raiva = raiva
+
+    @property
+    def data_aplicacao_H(self):
+        return self.__data_aplicacao_H
+
+    @data_aplicacao_H.setter
+    def data_aplicacao_H(self, data_aplicacao_H):
+        if isinstance(data_aplicacao_H, str):
+            self.__data_aplicacao_H = data_aplicacao_H
+
+    @property
+    def data_aplicacao_L(self):
+        return self.__data_aplicacao_L
+
+    @data_aplicacao_L.setter
+    def data_aplicacao_L(self, data_aplicacao_L):
+        if isinstance(data_aplicacao_L, str):
+            self.__data_aplicacao_L = data_aplicacao_L
+
+    @property
+    def data_aplicacao_R(self):
+        return self.__data_aplicacao_R
+
+    @data_aplicacao_R.setter
+    def data_aplicacao_R(self, data_aplicacao_R):
+        if isinstance(data_aplicacao_R, str):
+            self.__data_aplicacao_R = data_aplicacao_R
