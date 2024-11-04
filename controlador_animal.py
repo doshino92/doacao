@@ -121,9 +121,11 @@ class ControladorAnimal():
 
             i = i + 1
 
+
     def abre_tela(self):
-        lista_opcoes = {1: self.incluir_cachorro, 2: self.incluir_gato, 3: self.alterar_animal, 4: self.excluir_animal, 5: self.mostra_animal, 6: self.listar_animais, 7: self.listar_cachorros, 8: self.listar_gatos}
-        
+        lista_opcoes = {1: self.incluir_cachorro, 2: self.incluir_gato, 3: self.alterar_animal, 4: self.excluir_animal,
+                        5: self.mostra_animal, 6: self.listar_animais, 7: self.listar_cachorros, 8: self.listar_gatos}
+
         continua = True
         while continua:
             lista_opcoes[self.__tela_animal.tela_inicial()]()

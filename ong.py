@@ -1,6 +1,7 @@
 from adocao import Adocao
 from animal import Animal
 from doacao import Doacao
+from adotante import Adotante
 from datetime import datetime
 
 
@@ -10,6 +11,7 @@ class Ong:
         self.__doacoes = doacoes
         self.__adocoes = adocoes
 
+    adotantes = []
     animais_adotados = []
 
     #mostrar lista de animais que foram doados
@@ -106,3 +108,27 @@ class Ong:
             print("Nenhuma doação ocorreu neste período.")
 
         return resultado
+
+
+    def adicionar_adotante(self, adotante: Adotante):
+        self.adotantes.append(adotante)
+
+    def excluir_adotante(self, adotante: Adotante):
+        self.adotantes.remove(adotante)
+
+    def listar_adotantes(self, adotante: Adotante):
+        for adotante in self.adotantes:
+            print(adotante)
+
+    def alterar_adotante(self, cpf: str, novo_nome=None, novo_endereco = None,
+                         novo_tipo_moradia = None):
+        for adotante in self.adotantes:
+            if adotante.cpf == cpf:
+                if novo_nome:
+                        adotante.nome = novo_nome
+                if novo_tipo_moradia:
+                    adotante.tipo_moradia = novo_tipo_moradia
+                return
+            print("Erro não encontrado Adotante")
+
+

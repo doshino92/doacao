@@ -1,5 +1,3 @@
-
-
 class TelaAnimal():
     def tela_inicial(self):
         print('----------ANIMAIS----------')
