@@ -2,8 +2,6 @@ from adocao import Adocao
 from animal import Animal
 from doacao import Doacao
 from datetime import datetime
-from datetime import date
-
 from vacina import Vacina
 
 
@@ -37,9 +35,14 @@ class Ong:
 
     def registrar_adocao(self, adocao: Adocao):
         if adocao.adotante.cpf != adocao.doador.cpf:
-            self.__adocoes.append(adocao)
-            #print(f'\nAdoção Realizada \nAnimal: {adocao.animal.nome} \nAdotante: {adocao.adotante.nome}')
-            adocao.animal.adotado = True
+            if adocao.adotante.maior_de_idade():  # Verifica se o adotante é maior de idade
+                self.__adocoes.append(adocao)
+                print(f'\nAdoção Realizada \nAnimal: {adocao.animal.nome} \nAdotante: {adocao.adotante.nome}')
+                adocao.animal.adotado = True
+            else:
+                print(
+                    f'\n{adocao.adotante.nome} não pode adotar o animal {adocao.animal.nome} pois não possui 18 anos completos.')
+                adocao.animal.adotado = False
         else:
             print(f'\n{adocao.doador.nome} é doador, então não pode adotar o Animal {adocao.animal.nome}')
             adocao.animal.adotado = False  # Se o animal não foi adotado pelo motivo do adotante ser doador, o animal se mantém não adotado
@@ -61,15 +64,19 @@ class Ong:
         adocoes_exibidas = set()  # Para evitar duplicatas
 
         for adocao in self.__adocoes:
-            if data_inicio <= adocao.data_adocao <= data_fim:
+            # Verifica se a adoção foi efetiva (animal foi adotado) e se está dentro do período
+            if adocao.animal.adotado and data_inicio <= adocao.data_adocao <= data_fim:
                 identificador_adocao = (adocao.animal.nome, adocao.adotante.nome, adocao.data_adocao)
                 if identificador_adocao not in adocoes_exibidas:
                     adocoes_exibidas.add(identificador_adocao)
                     adocoes_filtradas.append(adocao)
 
         print("\nADOÇÕES no período:", data_inicio_str, 'até', data_fim_str)
-        for adocao in adocoes_filtradas:
-            print(f"Animal: {adocao.animal.nome}, Adotante: {adocao.adotante.nome}, Data: {adocao.data_adocao}")
+        if adocoes_filtradas:
+            for adocao in adocoes_filtradas:
+                print(f"Animal: {adocao.animal.nome}, Adotante: {adocao.adotante.nome}, Data: {adocao.data_adocao}")
+        else:
+            print("Nenhuma adoção ocorreu neste período.")
 
         return adocoes_filtradas
 
