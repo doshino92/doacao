@@ -9,6 +9,7 @@ class ControladorAnimal():
         self.__cachorros = []
         self.__gatos = []
         self.__ong = ong
+        
 
 
     def pega_animal_por_chip(self, chip: int):
@@ -119,3 +120,10 @@ class ControladorAnimal():
             self.mostra_animal(gato[i])
 
             i = i + 1
+
+    def abre_tela(self):
+        lista_opcoes = {1: self.incluir_cachorro, 2: self.incluir_gato, 3: self.alterar_animal, 4: self.excluir_animal, 5: self.mostra_animal, 6: self.listar_animais, 7: self.listar_cachorros, 8: self.listar_gatos}
+        
+        continua = True
+        while continua:
+            lista_opcoes[self.__tela_animal.tela_inicial()]()
