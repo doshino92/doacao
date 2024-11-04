@@ -1,8 +1,5 @@
 
 
-
-
-
 class Animal:
     def __init__(self, nome: str, chip: str, raca: str, porte: str, hepatite: bool, leptospirose: bool, raiva: bool,
                  data_aplicacao_H: str, data_aplicacao_L: str, data_aplicacao_R: str):
