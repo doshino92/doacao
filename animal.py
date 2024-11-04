@@ -5,10 +5,9 @@ from typing import List
 
 
 class Animal:
-    def __init__(self, nome: str, chip: str, cpf_doador: int, raca: str, porte: str, hepatite: bool, leptospirose: bool, raiva: bool, data_aplicacao_H: str, data_aplicacao_L: str, data_aplicacao_R: str):
+    def __init__(self, nome: str, chip: str, raca: str, porte: str, hepatite: bool, leptospirose: bool, raiva: bool, data_aplicacao_H: str, data_aplicacao_L: str, data_aplicacao_R: str):
         self.__nome = None
         self.__chip = None
-        self.__cpf_doador = None
         self.__raca = None
         self.__porte = None
         self.__hepatite = None
@@ -23,9 +22,6 @@ class Animal:
 
         if isinstance(chip, str):
             self.__chip = chip
-        
-        if isinstance(cpf_doador, int):
-            self.__cpf_doador = cpf_doador
 
         if isinstance(raca, str):
             if raca == 'cachorro' or raca == 'gato':
@@ -70,15 +66,6 @@ class Animal:
     def chip(self, chip: str):
         if isinstance(chip, str):
             self.__chip = chip
-
-    @property
-    def cpf_doador(self):
-        return self.__cpf_doador
-
-    @cpf_doador.setter
-    def cpf_doador(self, cpf_doador: str):
-        if isinstance(cpf_doador, str):
-            self.__nome = cpf_doador
 
     @property
     def raca(self):
