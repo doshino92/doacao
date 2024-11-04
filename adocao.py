@@ -5,12 +5,12 @@ from doador import Doador
 
 
 class Adocao:
-    def __init__(self, ano, mes, dia, animal: Animal, adotante: Adotante, doador: Doador,termo: bool= None):
+    def __init__(self, ano, mes, dia, animal: Animal, adotante: Adotante, doador: Doador,termo: bool):
         self.__data_adocao = date(ano, mes, dia)
-        self.__animal = animal
-        self.__adotante = adotante
+        self.__animal = None
+        self.__adotante = None
         self.__termo = None
-        self.__doador = doador
+        self.__doador = None
 
         if isinstance(self.__data_adocao, date):
             self.__data_adocao = date(ano, mes, dia)

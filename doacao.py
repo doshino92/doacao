@@ -8,7 +8,7 @@ class Doacao:
         self.__data_doacao = date(ano, mes, dia)
         self.__animal = animal
         self.__doador = doador
-        self.__motivo = motivo
+        self.__motivo = None
 
         if isinstance(self.data_doacao, date):
             self.__data_doacao = date(ano,mes,dia)
@@ -27,10 +27,9 @@ class Doacao:
         return self.__data_doacao
 
     @data_doacao.setter
-    def data_doacao(self, nova_data_doacao):
-        if isinstance(nova_data_doacao, Doacao):
-            dia, mes, ano = map(int, nova_data_doacao.split('-')) #split coloca traço entre as datas e ajusta para dia, mes ano
-            self.__data_doacao = date(ano, mes, dia)              #map(int)  força string a virar um inteiro
+    def data_doacao(self, nova_data_doacao: date):
+        if isinstance(nova_data_doacao, date):
+            self.__data_doacao = nova_data_doacao             #map(int)  força string a virar um inteiro
 
     @property
     def animal(self):

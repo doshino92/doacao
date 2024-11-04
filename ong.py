@@ -60,31 +60,49 @@ class Ong:
     def adocoes_por_periodo(self, data_inicio_str: str, data_fim_str: str):
         data_inicio = datetime.strptime(data_inicio_str, '%d-%m-%Y').date()
         data_fim = datetime.strptime(data_fim_str, '%d-%m-%Y').date()
-        adocoes_filtradas = []
+
+        resultado = []
+        adocoes_exibidas = set()  # Usar um conjunto para evitar duplicatas
+
+        print("\nADOÇÕES no período:", data_inicio_str, 'até', data_fim_str)
+
         for adocao in self.__adocoes:
             if adocao.animal.adotado and data_inicio <= adocao.data_adocao <= data_fim:
-                adocoes_filtradas.append(adocao)
-        return adocoes_filtradas
-        print("\nADOÇÕES no período:", data_inicio_str, 'até', data_fim_str)
-        if adocoes_filtradas:
-            for adocao in adocoes_filtradas:
+                # Usar uma tupla como chave para identificar adoções
+                chave_adocao = (adocao.animal.nome, adocao.adotante.nome, adocao.data_adocao)
+                if chave_adocao not in adocoes_exibidas:
+                    adocoes_exibidas.add(chave_adocao)  # Adiciona a chave ao conjunto
+                    resultado.append(adocao)
+
+        if resultado:
+            for adocao in resultado:
                 print(f"Animal: {adocao.animal.nome}, Adotante: {adocao.adotante.nome}, Data: {adocao.data_adocao}")
         else:
             print("Nenhuma adoção ocorreu neste período.")
-        return adocoes_filtradas
+
+        return resultado
 
     def doacoes_por_periodo(self, data_inicio_str: str, data_fim_str: str):
-        # Converter strings de data para objetos date
         data_inicio = datetime.strptime(data_inicio_str, '%d-%m-%Y').date()
         data_fim = datetime.strptime(data_fim_str, '%d-%m-%Y').date()
-        doacoes_filtradas = []
+
+        resultado = []
+        doacoes_exibidas = set()  # Usar um conjunto para evitar duplicatas
+
+        print("\nDOAÇÕES no período:", data_inicio_str, 'até', data_fim_str)
+
         for doacao in self.__doacoes:
             if data_inicio <= doacao.data_doacao <= data_fim:
-                # Verificar se animal e doador não são None antes de acessar nome
-                if doacao.animal and doacao.doador:
-                    doacoes_filtradas.append(doacao)
-        return doacoes_filtradas
-        print("\nDOAÇOES no período:", data_inicio_str, 'até', data_fim_str)
-        for doacao in doacoes_filtradas:
-            print(f"Animal: {doacao.animal.nome}, Adotante: {doacao.doador.nome}, Data: {doacao.data_doacao}")
-        return doacoes_filtradas
+                # Usar uma tupla como chave para identificar doações
+                chave_doacao = (doacao.animal.nome, doacao.doador.nome, doacao.data_doacao)
+                if chave_doacao not in doacoes_exibidas:
+                    doacoes_exibidas.add(chave_doacao)  # Adiciona a chave ao conjunto
+                    resultado.append(doacao)
+
+        if resultado:
+            for doacao in resultado:
+                print(f"Animal: {doacao.animal.nome}, Doador: {doacao.doador.nome}, Data: {doacao.data_doacao}")
+        else:
+            print("Nenhuma doação ocorreu neste período.")
+
+        return resultado
