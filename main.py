@@ -4,7 +4,6 @@ from doacao import Doacao
 from adocao import Adocao
 from adotante import Adotante
 from ong import Ong
-from porte import Porte
 from moradia import Moradia
 
 # criando adotantes
@@ -13,11 +12,11 @@ adotante2 = Adotante('Val', '333111333','Sao Jose',2010,2,13,Moradia.CASA,False,
 adotante3 = Adotante('Carol', '331345611333','Sao Jose',2000,2,13,Moradia.APARTAMENTO,False, False)
 
 #criando animais
-animal1 = Animal('Mia','123', 'Viralata',Porte.PEQUENO, True, True, True,'20-02-2022',
+animal1 = Animal('Mia','123', 'Viralata','Pequeno', True, True, True,'20-02-2022',
                  '20-02-2022','20-02-2022')
-animal2 = Animal('Cagão','456', 'Pastor Alemão',Porte.PEQUENO, True, True, True,'20-02-2022',
+animal2 = Animal('Cagão','456', 'Pastor Alemão','Pequeno', True, True, True,'20-02-2022',
                  '20-02-2022','20-02-2022')
-animal3 = Animal('Pitu','789', 'Tigre',Porte.GRANDE, True, True, True,'20-02-2022',
+animal3 = Animal('Pitu','789', 'Tigre','Grande', True, True, True,'20-02-2022',
                  '20-02-2022','20-02-2022')
 
 # criando doadores

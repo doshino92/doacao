@@ -1,7 +1,5 @@
-from porte import Porte
-
 class Animal:
-    def __init__(self, nome: str, chip: str, raca: str, porte: Porte, hepatite: bool, leptospirose: bool, raiva: bool,
+    def __init__(self, nome: str, chip: str, raca: str, porte: str, hepatite: bool, leptospirose: bool, raiva: bool,
                  data_aplicacao_H: str, data_aplicacao_L: str, data_aplicacao_R: str):
         self.__nome = None
         self.__chip = None
@@ -24,7 +22,7 @@ class Animal:
             if raca == 'cachorro' or raca == 'gato':
                 self.__raca = raca
 
-        if isinstance(porte, Porte):
+        if isinstance(porte, str):
             if raca == 'cachorro':
                 self.__porte = porte
 
@@ -79,7 +77,7 @@ class Animal:
         return self.__porte
 
     @porte.setter
-    def porte(self, novo_porte: Porte):
+    def porte(self, novo_porte: str):
         self.__porte = novo_porte
 
     @property
