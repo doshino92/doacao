@@ -2,36 +2,64 @@ from adocao import Adocao
 from animal import Animal
 from doacao import Doacao
 from datetime import datetime
-from vacina import Vacina
 
 
 class Ong:
     def __init__(self, animais: list[Animal], doacoes: list[Doacao], adocoes: list[Adocao] ):
-        self.__animais = animais
-        self.__doacoes = doacoes
-        self.__adocoes = adocoes
+        self.__animais = []
+        self.__doacoes = []
+        self.__adocoes = []
+
+        if isinstance(animais, Animal):
+            self.__animais.append(animais)
+        
+        if isinstance(doacoes, Doacao):
+            self.__doacoes.append(Doacao)
+        
+        if isinstance(adocoes, Adocao):
+            self.__adocoes.append(Adocao)
 
     animais_adotados = []
 
-    #mostrar lista de animais que foram doados
-    def mostrar_animais(self):
-        for animais in self.__animais:  # Usar __animais diretamente
+<<<<<<< HEAD
+    #mostrar lista de animais que não foram doados
+    def mostrar_animais(self, animais:Animal):
+        for animais in self.__animais:
             print(animais.nome)
 
     #mostrar lista de animais doados
-    def mostrar_doacoes(self):
+    def mostrar_doacoes(self, doacao: Doacao):
         for doacao in self.__doacoes:
             print(doacao.animal.nome)
 
     #mostrar lista de animais adotados
-    def mostrar_adocoes(self):
+    def mostrar_adocoes(self, adocao: Adocao):
         for adocao in self.__adocoes:
             print(adocao.animal.nome)
+=======
+    #mostrar lista de animais que foram doados
+    def mostrar_animais(self):
+        if isinstance(self.__animais, list):
+            for animais in self.__animais:  # Usar __animais diretamente
+                print(animais.nome)
+
+    #mostrar lista de animais doados
+    def mostrar_doacoes(self):
+        if isinstance(self.__doacoes, list):
+            for doacao in self.__doacoes:
+                print(doacao.animal.nome)
+
+    #mostrar lista de animais adotados
+    def mostrar_adocoes(self):
+        if isinstance(self.__adocoes, list):
+            for adocao in self.__adocoes:
+                print(adocao.animal.nome)
+>>>>>>> 863560f78f7037b41c47c2477fe370ae8c185e49
 
 
     def registrar_doacao(self, doacao: Doacao):
         self.__doacoes.append(doacao)
-        #print(f'\nDoação Recebida \nAnimal:', doacao.animal.nome,'\nDoador: ', doacao.doador.nome )
+        print(f'\nDoação Recebida \nAnimal:', doacao.animal.nome,'\nDoador: ', doacao.doador.nome )
 
     def registrar_adocao(self, adocao: Adocao):
         if adocao.adotante.cpf != adocao.doador.cpf:
@@ -56,69 +84,51 @@ class Ong:
         return disponiveis
 
     def adocoes_por_periodo(self, data_inicio_str: str, data_fim_str: str):
-        # Converter strings de data para objetos date
         data_inicio = datetime.strptime(data_inicio_str, '%d-%m-%Y').date()
         data_fim = datetime.strptime(data_fim_str, '%d-%m-%Y').date()
 
-        adocoes_filtradas = []
-        adocoes_exibidas = set()  # Para evitar duplicatas
-
-        for adocao in self.__adocoes:
-            # Verifica se a adoção foi efetiva (animal foi adotado) e se está dentro do período
-            if adocao.animal.adotado and data_inicio <= adocao.data_adocao <= data_fim:
-                identificador_adocao = (adocao.animal.nome, adocao.adotante.nome, adocao.data_adocao)
-                if identificador_adocao not in adocoes_exibidas:
-                    adocoes_exibidas.add(identificador_adocao)
-                    adocoes_filtradas.append(adocao)
+        resultado = []
+        adocoes_exibidas = set()  # Usar um conjunto para evitar duplicatas
 
         print("\nADOÇÕES no período:", data_inicio_str, 'até', data_fim_str)
-        if adocoes_filtradas:
-            for adocao in adocoes_filtradas:
+
+        for adocao in self.__adocoes:
+            if adocao.animal.adotado and data_inicio <= adocao.data_adocao <= data_fim:
+                # Usar uma tupla como chave para identificar adoções
+                chave_adocao = (adocao.animal.nome, adocao.adotante.nome, adocao.data_adocao)
+                if chave_adocao not in adocoes_exibidas:
+                    adocoes_exibidas.add(chave_adocao)  # Adiciona a chave ao conjunto
+                    resultado.append(adocao)
+
+        if resultado:
+            for adocao in resultado:
                 print(f"Animal: {adocao.animal.nome}, Adotante: {adocao.adotante.nome}, Data: {adocao.data_adocao}")
         else:
             print("Nenhuma adoção ocorreu neste período.")
 
-        return adocoes_filtradas
+        return resultado
 
     def doacoes_por_periodo(self, data_inicio_str: str, data_fim_str: str):
-        # Converter strings de data para objetos date
         data_inicio = datetime.strptime(data_inicio_str, '%d-%m-%Y').date()
         data_fim = datetime.strptime(data_fim_str, '%d-%m-%Y').date()
 
-        doacoes_filtradas = []
-        doacoes_exibidas = set()  # Para evitar duplicatas
+        resultado = []
+        doacoes_exibidas = set()  # Usar um conjunto para evitar duplicatas
+
+        print("\nDOAÇÕES no período:", data_inicio_str, 'até', data_fim_str)
 
         for doacao in self.__doacoes:
             if data_inicio <= doacao.data_doacao <= data_fim:
-                identificador_doacao = (doacao.animal.nome, doacao.doador.nome, doacao.data_doacao)
-                if identificador_doacao not in doacoes_exibidas:
-                    doacoes_exibidas.add(identificador_doacao)
-                    doacoes_filtradas.append(doacao)
+                # Usar uma tupla como chave para identificar doações
+                chave_doacao = (doacao.animal.nome, doacao.doador.nome, doacao.data_doacao)
+                if chave_doacao not in doacoes_exibidas:
+                    doacoes_exibidas.add(chave_doacao)  # Adiciona a chave ao conjunto
+                    resultado.append(doacao)
 
-        print("\nDOAÇOES no período:", data_inicio_str, 'até', data_fim_str)
-        for doacao in doacoes_filtradas:
-            print(f"Animal: {doacao.animal.nome}, Adotante: {doacao.doador.nome}, Data: {doacao.data_doacao}")
+        if resultado:
+            for doacao in resultado:
+                print(f"Animal: {doacao.animal.nome}, Doador: {doacao.doador.nome}, Data: {doacao.data_doacao}")
+        else:
+            print("Nenhuma doação ocorreu neste período.")
 
-        return doacoes_filtradas
-
-    def vacinar_animais_disponiveis(self, vacina: Vacina):
-        print("\nVacinação dos Animais Disponíveis:")
-        for animal in self.__animais:
-            if not animal.adotado:
-                animal.adicionar_vacina(vacina)
-                print(f"Vacina {vacina.tipo.value} aplicada em {animal.nome}.")
-
-    def mostrar_vacinas_animal(self, animal):
-        if not isinstance(animal, Animal):
-            print("O objeto fornecido não é um animal.")
-            return
-
-        if not animal.vacinas:
-            print(f"{animal.nome} não recebeu vacinas.")
-            return
-
-        print(f"Vacinas de {animal.nome}:")
-        for vacina in animal.vacinas:
-            data = vacina.data_aplicacao  # Obtém o objeto date
-            print(
-                f"- {vacina.tipo.value} (Data: {data.day}/{data.month}/{data.year})")  # Usa o dia, mês e ano do objeto date
+        return resultado

@@ -3,17 +3,21 @@ from pessoa import Pessoa
 
 
 class Doador(Pessoa):
-    def __init__(self, nome: str, cpf: str, endereco: str, ano: int, mes: int, dia: int, animal: Animal = None ):
+    def __init__(self, nome: str, cpf: str, endereco: str, ano: int, mes: int, dia: int, animal_doado: Animal ):
         super().__init__(nome, cpf, endereco, ano, mes, dia)
-        self.__animal =  animal
+        self.__animal_doado =  None
 
-        @property
-        def animal(self):
-            return self.__animal
+        if isinstance(animal_doado, Animal):
+            self.__animal_doado = animal_doado
 
-        @animal.setter
-        def animal(self, novo_animal: Animal ):
-            self.__animal = novo_animal
+    @property
+    def animal_doado(self):
+        return self.__animal_doado
+
+    @animal_doado.setter
+    def animal_doado(self, novo_animal_doado: Animal):
+        if isinstance(novo_animal_doado, Animal):
+            self.__animal_doado = novo_animal_doado
 
 
 

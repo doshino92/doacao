@@ -14,7 +14,8 @@ class Pessoa:
 
     @nome.setter
     def nome(self, novo_nome: str):
-        self.__nome = novo_nome
+        if isinstance(novo_nome, str):
+            self.__nome = novo_nome
 
     @property
     def cpf(self):
@@ -22,7 +23,8 @@ class Pessoa:
 
     @cpf.setter
     def cpf(self, novo_cpf: str):
-        self.__cpf = novo_cpf
+        if isinstance(novo_cpf, str):
+            self.__cpf = novo_cpf
 
     @property
     def endereco(self):
@@ -30,7 +32,8 @@ class Pessoa:
 
     @endereco.setter
     def endereco(self, novo_endereco: str):
-        self.__endereco = novo_endereco
+        if isinstance(novo_endereco, str):
+            self.__endereco = novo_endereco
 
     @property
     def data_nascimento(self):
@@ -38,8 +41,6 @@ class Pessoa:
 
     @data_nascimento.setter
     def data_nascimento(self, nova_data_nascimento: str):
-        try:
+        if isinstance(nova_data_nascimento, date):
             dia, mes, ano = map(int, nova_data_nascimento.split('-')) #split força o usuario a coloca traço entre as datas e ajusto para dia, mes ano
             self.__data_nascimento = date(ano, mes, dia)              #map(int)  força string a virar um inteiro
-        except ValueError:
-            raise ValueError("A data deve estar entre traços Ex: DD-MM-AAAA")
