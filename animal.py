@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 863560f78f7037b41c47c2477fe370ae8c185e49
 class Animal:
     def __init__(self, nome: str, chip: str, raca: str, porte: str, hepatite: bool, leptospirose: bool, raiva: bool,
                  data_aplicacao_H: str, data_aplicacao_L: str, data_aplicacao_R: str):

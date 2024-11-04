@@ -21,7 +21,6 @@ class Ong:
 
     animais_adotados = []
 
-<<<<<<< HEAD
     #mostrar lista de animais que não foram doados
     def mostrar_animais(self, animais:Animal):
         for animais in self.__animais:
@@ -36,25 +35,6 @@ class Ong:
     def mostrar_adocoes(self, adocao: Adocao):
         for adocao in self.__adocoes:
             print(adocao.animal.nome)
-=======
-    #mostrar lista de animais que foram doados
-    def mostrar_animais(self):
-        if isinstance(self.__animais, list):
-            for animais in self.__animais:  # Usar __animais diretamente
-                print(animais.nome)
-
-    #mostrar lista de animais doados
-    def mostrar_doacoes(self):
-        if isinstance(self.__doacoes, list):
-            for doacao in self.__doacoes:
-                print(doacao.animal.nome)
-
-    #mostrar lista de animais adotados
-    def mostrar_adocoes(self):
-        if isinstance(self.__adocoes, list):
-            for adocao in self.__adocoes:
-                print(adocao.animal.nome)
->>>>>>> 863560f78f7037b41c47c2477fe370ae8c185e49
 
 
     def registrar_doacao(self, doacao: Doacao):
