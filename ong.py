@@ -2,7 +2,6 @@ from adocao import Adocao
 from animal import Animal
 from doacao import Doacao
 from datetime import datetime
-from vacina import Vacina
 
 
 class Ong:
@@ -15,18 +14,21 @@ class Ong:
 
     #mostrar lista de animais que foram doados
     def mostrar_animais(self):
-        for animais in self.__animais:  # Usar __animais diretamente
-            print(animais.nome)
+        if isinstance(self.__animais, list):
+            for animais in self.__animais:  # Usar __animais diretamente
+                print(animais.nome)
 
     #mostrar lista de animais doados
     def mostrar_doacoes(self):
-        for doacao in self.__doacoes:
-            print(doacao.animal.nome)
+        if isinstance(self.__doacoes, list):
+            for doacao in self.__doacoes:
+                print(doacao.animal.nome)
 
     #mostrar lista de animais adotados
     def mostrar_adocoes(self):
-        for adocao in self.__adocoes:
-            print(adocao.animal.nome)
+        if isinstance(self.__adocoes, list):
+            for adocao in self.__adocoes:
+                print(adocao.animal.nome)
 
 
     def registrar_doacao(self, doacao: Doacao):
@@ -100,7 +102,7 @@ class Ong:
             print(f"Animal: {doacao.animal.nome}, Adotante: {doacao.doador.nome}, Data: {doacao.data_doacao}")
 
         return doacoes_filtradas
-
+    '''
     def vacinar_animais_disponiveis(self, vacina: Vacina):
         print("\nVacinação dos Animais Disponíveis:")
         for animal in self.__animais:
@@ -121,4 +123,4 @@ class Ong:
         for vacina in animal.vacinas:
             data = vacina.data_aplicacao  # Obtém o objeto date
             print(
-                f"- {vacina.tipo.value} (Data: {data.day}/{data.month}/{data.year})")  # Usa o dia, mês e ano do objeto date
+                f"- {vacina.tipo.value} (Data: {data.day}/{data.month}/{data.year})")  # Usa o dia, mês e ano do objeto date'''
