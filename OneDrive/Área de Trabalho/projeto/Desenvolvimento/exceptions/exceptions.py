@@ -1,4 +1,3 @@
-# exceptions/exceptions.py
 class CampoObrigatorioVazio(Exception):
     def __init__(self, campo):
         self.campo = campo

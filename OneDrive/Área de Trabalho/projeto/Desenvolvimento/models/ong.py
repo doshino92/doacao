@@ -1,4 +1,3 @@
-# models/ong.py
 class Ong:
     def __init__(self):
         self.doadores = []

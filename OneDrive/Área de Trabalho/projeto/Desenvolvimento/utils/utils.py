@@ -1,4 +1,3 @@
-# utils/utils.py
 def validar_cpf(cpf):
     if len(cpf) != 11 or not cpf.isdigit() or cpf == cpf[0] * 11:
         return False

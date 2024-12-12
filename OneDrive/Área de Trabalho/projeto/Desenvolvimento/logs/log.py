@@ -1,4 +1,3 @@
-# logs/log.py
 import pickle
 import os
 from datetime import datetime

@@ -5,7 +5,7 @@ from exceptions import CampoObrigatorioVazio, CPFInvalido
 from utils import validar_cpf
 from logs import registrar_alteracao, listar_alteracoes
 
-class TelaGeralView:
+class TelaDoadorView:
     def __init__(self):
         self.doador_controller = DoadorController()
         self.menu_doadores()
@@ -147,13 +147,11 @@ class TelaGeralView:
                 try:
                     if values['cpf'] == '':
                         raise CampoObrigatorioVazio('CPF')
-                    if not validar_cpf(values['cpf']):
-                        raise CPFInvalido(values['cpf'])
                     feedback = self.doador_controller.remove_doador(values['cpf'])
                     sg.popup(feedback)
                     if "sucesso" in feedback:
                         break
-                except (CampoObrigatorioVazio, CPFInvalido, ValueError) as e:
+                except (CampoObrigatorioVazio, ValueError) as e:
                     sg.popup(str(e))
         window.close()
 

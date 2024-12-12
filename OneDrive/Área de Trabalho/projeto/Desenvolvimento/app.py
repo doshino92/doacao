@@ -1,5 +1,4 @@
-# main.py
-from views.tela_geral_view import TelaGeralView
+from views.tela_doador_view import TelaDoadorView
 
 if __name__ == "__main__":
-    TelaGeralView()
+    TelaDoadorView()
