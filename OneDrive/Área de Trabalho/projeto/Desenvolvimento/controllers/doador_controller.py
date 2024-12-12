@@ -1,4 +1,5 @@
-# controllers/doador_controller.py
+import pickle
+from models.doador import Doador
 from datetime import date
 
 class DoadorController:
@@ -9,7 +10,12 @@ class DoadorController:
     def load_data(self):
         try:
             with open(self.file_path, 'rb') as file:
-                return pickle.load(file)
+                doadores = pickle.load(file)
+                # Converter datas de nascimento que estão no formato string
+                for doador in doadores:
+                    if isinstance(doador.data_nascimento, str):
+                        doador.data_nascimento = date.fromisoformat(doador.data_nascimento)
+                return doadores
         except (FileNotFoundError, EOFError):
             return []
 
@@ -51,12 +57,4 @@ class DoadorController:
         return self.doadores
 
     def generate_report(self):
-        hoje = date.today()
-        maiores_de_18 = [
-            doador for doador in self.doadores
-            if hoje.year - doador.ano > 18 or (
-                hoje.year - doador.ano == 18 and
-                (hoje.month > doador.mes or (hoje.month == doador.mes and hoje.day >= doador.dia))
-            )
-        ]
-        return '\n'.join(str(d) for d in maiores_de_18)
+        return '\n'.join(str(d) for d in self.doadores)
