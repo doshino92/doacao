@@ -185,10 +185,13 @@ class TelaGeralView:
 
         window.close()
 
+    # views/tela_geral_view.py
+
+    # views/tela_geral_view.py
     def gerar_relatorio(self):
         relatorio = self.doador_controller.generate_report()
         layout = [
-            [sg.Text('Relatório de Doadores:')],
+            [sg.Text('Relatório de Doadores Maiores de 18 Anos:')],
             [sg.Multiline(default_text=relatorio, size=(60, 20))],
             [sg.Button('Fechar')]
         ]

@@ -1,15 +1,12 @@
 # models/doador.py
 class Doador:
-    def __init__(self, nome, cpf, endereco, ano, mes, dia, animal_doado=None):
+    def __init__(self, nome, cpf, endereco, ano, mes, dia):
         self.nome = nome
         self.cpf = cpf
         self.endereco = endereco
-        self.data_nascimento = f"{ano}-{mes:02d}-{dia:02d}"
-        self.animal_doado = animal_doado
+        self.ano = ano
+        self.mes = mes
+        self.dia = dia
 
     def __str__(self):
-        return (f"Nome: {self.nome}\n"
-                f"CPF: {self.cpf}\n"
-                f"Endereço: {self.endereco}\n"
-                f"Data de Nascimento: {self.data_nascimento}\n"
-                f"Animal Doado: {self.animal_doado}")
+        return f"{self.nome} - CPF: {self.cpf} - Endereço: {self.endereco} - Nascimento: {self.dia}/{self.mes}/{self.ano}"

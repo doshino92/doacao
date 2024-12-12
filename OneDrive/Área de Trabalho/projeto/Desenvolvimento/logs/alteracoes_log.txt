@@ -1,1 +1,2 @@
 2024-12-12 12:03:37 - CPF: 11221643606 - Campo: Nome - Antigo: DDDD - Novo: SSSS
+2024-12-12 12:19:30 - CPF: 48142871009 - Campo: Nome - Antigo: Maria - Novo: Mariazinha

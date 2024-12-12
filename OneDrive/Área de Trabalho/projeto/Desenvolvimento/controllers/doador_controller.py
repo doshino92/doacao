@@ -1,6 +1,4 @@
 # controllers/doador_controller.py
-import pickle
-from models.doador import Doador
 from datetime import date
 
 class DoadorController:
@@ -53,4 +51,12 @@ class DoadorController:
         return self.doadores
 
     def generate_report(self):
-        return '\n'.join(str(d) for d in self.doadores)
+        hoje = date.today()
+        maiores_de_18 = [
+            doador for doador in self.doadores
+            if hoje.year - doador.ano > 18 or (
+                hoje.year - doador.ano == 18 and
+                (hoje.month > doador.mes or (hoje.month == doador.mes and hoje.day >= doador.dia))
+            )
+        ]
+        return '\n'.join(str(d) for d in maiores_de_18)
