@@ -11,7 +11,6 @@ class DoadorController:
         try:
             with open(self.file_path, 'rb') as file:
                 doadores = pickle.load(file)
-                # Converter datas de nascimento que estão no formato string
                 for doador in doadores:
                     if isinstance(doador.data_nascimento, str):
                         doador.data_nascimento = date.fromisoformat(doador.data_nascimento)

@@ -1,3 +1,4 @@
 2024-12-12 12:03:37 - CPF: 11221643606 - Campo: Nome - Antigo: DDDD - Novo: SSSS
 2024-12-12 12:19:30 - CPF: 48142871009 - Campo: Nome - Antigo: Maria - Novo: Mariazinha
 2024-12-12 13:45:39 - CPF: 112 - Campo: Nome - Antigo: ggge - Novo: 11221643606
+2024-12-12 20:58:35 - CPF: 11221643606 - Campo: Nome - Antigo: Guilherme Hino - Novo: Joao
